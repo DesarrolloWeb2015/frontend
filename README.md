@@ -1,2 +1,2 @@
 # frontend
-frontent del proyecto tecnocrowd
+frontend del proyecto tecnocrowd
