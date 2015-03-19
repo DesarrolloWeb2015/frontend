@@ -145,3 +145,17 @@ div#locations  > img{
     background-color: #effffc;
     padding:20px;
 }
+.text-row{
+    margin-top:60px;
+    padding: 50px;
+}
+#footer{
+    height: 250px;
+    width: 100%;
+    background-color: rgba(38, 39, 44, 0.85);
+}
+#copyleft{
+    height: 30px;
+    width: 100%;
+    text-align: center;
+}
