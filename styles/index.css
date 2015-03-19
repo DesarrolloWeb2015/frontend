@@ -106,6 +106,7 @@ div#locations  > img{
     position: absolute;
     top:50%;
     left:50%;
+    cursor: pointer;
 }
 #middleContent .arrowContainer.left{
     border-radius: 35px 0px 0px 35px ;
@@ -123,4 +124,15 @@ div#locations  > img{
 #middleContent .arrowContainer.right img{
     margin-top:18px;
     margin-left: 0px;
+}
+.sep{
+    height: 20px;
+    background-color: #bf5f1f;
+    width: 100%;
+    top:100%;
+}
+#outstadings{
+    height: 400px;
+    width: 100%;
+    background-color: #119b00;
 }
