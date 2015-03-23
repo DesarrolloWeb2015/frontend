@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <script src="bower_components/angular/angular.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/index.css">
     <title>TecnoCrown</title>
 
@@ -15,8 +14,12 @@
         <img id="logo" src="images/logo5.png"/>
         <div id="menu">
             <ul>
-                <li>Home</li>
-                <li>Projects</li>
+                <a herf="#">
+                    <li>Home</li>
+				</a>
+				<a href="/projects.html">
+                	<li>Projects</li>
+				</a>
                 <li>About us</li>
                 <li>Contact</li>
                 <li class="navBtn logBtn">Login</li>
@@ -27,11 +30,19 @@
 </div>
 <div id="locations">
     <div class="container">
-        <select>
-            <option>language</option>
-            <option>English</option>
-            <option>Spanish</option>
-        </select>
+        <ul class="nav nav-pills">
+            <!--<li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Help</a></li>-->
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                    Choose your language <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">English</a></li>
+                    <li><a href="#" >Spanish</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </div>
 <div id="middleContent">
@@ -190,5 +201,7 @@
 
 <script src="script/app.js"></script>
 <script src="script/index.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>

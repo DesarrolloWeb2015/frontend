@@ -37,27 +37,27 @@ div#menu > ul {
     float: right;
 }
 
-div#menu > ul > li {
+div#menu > ul  li {
     float:left;
     padding: 32px 15px 0px 15px;
     height: 15px;
     color: #bab5b6;
     font-weight: bold;
 }
-div#menu > ul > li.navBtn {
+div#menu > ul  li.navBtn {
     border-radius: 4px;
     padding-top: 5px;
     height: 35px;
     margin-top: 25px;
     margin-left: 5px;
 }
-div#menu > ul > li.sigBtn {
+div#menu > ul  li.sigBtn {
     border: 2px solid #119b00;
 }
-div#menu > ul > li.logBtn {
+div#menu > ul  li.logBtn {
     border: 2px solid #c57a1c;
 }
-div#menu > ul > li:hover {
+div#menu > ul  li:hover {
     background-color:#646464;
     color: white;
     cursor:pointer;
@@ -158,4 +158,10 @@ div#locations  > img{
     height: 30px;
     width: 100%;
     text-align: center;
+}
+.nav-pills>li{
+    float:right;
+}
+.dropdown-toggle:hover{
+    background-color: transparent;
 }
