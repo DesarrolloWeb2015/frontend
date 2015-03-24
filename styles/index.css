@@ -3,7 +3,8 @@
     padding:0;
 }
 body {
-    background-image: url('../images/background.png');
+    /*background-image: url('../images/background.png');*/
+    background-color: azure;
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -15,6 +16,7 @@ html,body{
 }
 h1{
     letter-spacing: 1px;
+    font-weight: bolder;
 }
 .header{
     height: 75px;
@@ -140,7 +142,7 @@ div#locations  > img{
     top:100%;
 }
 #outstadings{
-    height: 420px;
+    height: auto;
     width: 100%;
     background-color: #effffc;
     padding:20px;
@@ -159,9 +161,25 @@ div#locations  > img{
     width: 100%;
     text-align: center;
 }
+
+.filters{
+    background-color: rgba(20,20,20,0.7);
+    position: fixed;
+    max-width: 20%;
+    /*min-height: 550px;*/
+}
+/*OVERWRITE STYLES BOOTSTRAP*/
+.dropdown-menu>li{  padding:5px;  }
+.dropdown-menu>li>a>img{display:inline-block;vertical-align: middle;}
 .nav-pills>li{
     float:right;
 }
+.nav-pills>li>a{
+    padding:4px;
+    color:azure;
+}
 .dropdown-toggle:hover{
     background-color: transparent;
+    color: #204d74;
 }
+/*END OVERWRITE STYLES BOOTSTRAP*/
