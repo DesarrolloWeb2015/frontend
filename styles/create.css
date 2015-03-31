@@ -191,13 +191,13 @@ div#locations  > img{
 }
 .dropzone{
     border: 2px dashed #b3b3b3;
-    height: 200px;
+    height: 120px;
     width: 100%;
     color: azure;
     text-align: center;
 }
 .dropzone > p{
-    margin: 40px auto 0px auto;
+    margin: 30px auto 0px auto;
     font-size: 16px;
 }
 .dropzone > span{
@@ -211,4 +211,7 @@ div#locations  > img{
     float:right;
     width: 100px;
     margin-left: 10px;
+}
+div.row a{
+    color: azure;
 }
