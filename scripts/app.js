@@ -1,7 +1,7 @@
 (function (document) {
 
-	'use strict';
-	/**
+  'use strict';
+  /**
 	 * @ngdoc overview
 	 * @name PolymerBricks
 	 * @description
@@ -9,17 +9,19 @@
 	 *
 	 * Main module of the application.
 	*/
-	angular
-	.module('TecnoCrown', [
-		'ngRoute'
-	])
-	.config(function ($locationProvider, $routeProvider) {
+  angular
+  .module('TecnoCrown', [
+    'ngRoute'
+  ])
+  .config(function ($locationProvider, $routeProvider) {
 
-		$routeProvider
-		.when('/', {
-			templateUrl: 'views/home.html',
-			controller: 'HomeCtrl'
+    $routeProvider
+    .when('/', {
+      templateUrl: 'views/home.html',
+      controller: 'HomeCtrl'
 
-	});
+    })
+    .otherwise({redirectTo: '/'})
+    ;
 
-})(wrap(document));
+  })(wrap(document));
