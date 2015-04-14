@@ -1,1 +1,1 @@
-angular.module('TecnoCrown');
+angular.module("TecnoCrown", []);

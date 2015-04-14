@@ -8,19 +8,17 @@
     <title>TecnoCrown</title>
 
   </head>
-  <body ng-controller="IndexCtrl">
+  <body ng-controller="HomeCtrl">
     <div class="header">
       <div class="container">
         <a href="/"><img id="logo" src="images/logo5.png"/></a>
         <div id="menu">
           <ul>
-            <a href="/projects.html">
-              <li>Projects</li>
-            </a>
+            <a href="/projects.html"><li>Projects</li></a>
             <a href="/about"><li>About us</li></a>
             <a href="/contact"><li>Contact</li></a>
             <a href="/profile"><li>Profile</li></a>
-            <li href="/" class="navBtn logBtn">Log Out</li>
+            <a href="/"><li class="navBtn logBtn">Log Out</li></a>
           </ul>
         </div>
       </div>
@@ -44,68 +42,110 @@
     </div>
     <div id="middleContent">
       <div class="project">
-        <ul class="nav nav-tabs nav-justified prueba">
-          <li class="active"><a href="#">Your Project</a></li>
-          <li><a href="#">Crownfounding</a></li>
-          <li><a href="#">Suggestion</a></li>
-        </ul>
-        <div class="project-content">
+
+        <!--Menu nav-->
+        <ul class="nav nav-tabs nav-justified">
+          <li class="active"><a href="#projects" data-toggle="tab">Your Project</a></li>
+          <li><a href="#crowfounding" data-toggle="tab">Crownfounding</a></li>
+          <li><a href="#suggestion" data-toggle="tab">Suggestion</a></li>
+          <li><a href="#profile" data-toggle="tab">Profile</a></li>
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Buscar">
           </div>
-          <div class="containerLast">
-            <div class="row">
-              <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                  <img src="images/proy1.png" alt="...">
-                  <div class="caption">
-                    <h4>Title Proyect</h4>
-                    <p>Tiny description about the proyecto, no much more of 150 characters.</p>
-                    <div class="progress progress-striped active">
-                      <div class="progress-bar" role="progressbar"
-                           aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
-                           style="width: 50%">
-                        <span>15.000€/30.000€</span>
-                      </div>
+        </ul>
+
+
+        <div class="tab-content">
+          <!--Your project created-->
+          <div class="tab-pane fade in active" id="projects">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="images/proy2.jpeg" alt="...">
+                <div class="caption">
+                  <h4>Title Proyect</h4>
+                  <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+                  <p>
+                  <div class="progress progress-striped active">
+                    <div class="progress-bar" role="progressbar"
+                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                         style="width: 25%">
+                      <span>2.000€/10.000€</span>
                     </div>
-                    <div class="progress progress-striped active">
-                      <div class="progress-bar" role="progressbar"
-                           aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
-                           style="width: 50%">
-                        <span>20 day left</span>
-                      </div>
-                    </div>
-                    <p>
-                      <a href="#">+ more</a>
-                    </p>
                   </div>
+                  <div class="progress progress-striped active">
+                    <div class="progress-bar" role="progressbar"
+                         aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                         style="width: 50%">
+                      <span>15 day left</span>
+                    </div>
+                  </div>
+
+                  <a href="#">+ more</a>
+
+                  </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!--Crowfounding Projects-->
+        <div class="tab-pane fade"id="crowfounding" >
+          <div ng-repeat="element in crowfounding">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="{{element.img}}" alt="...">
+                <div class="caption">
+                  <h4>{{element.name}}</h4>
+                  <p>{{element.description}}</p>
+                  <div class="progress progress-striped active">
+                    <div class="progress-bar" role="progressbar"
+                         aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                         style="width: 50%">
+                      <span>{{element.current}}/{{element.needed}}</span>
+                    </div>
+                  </div>
+                  <div class="progress progress-striped active">
+                    <div class="progress-bar" role="progressbar"
+                         aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                         style="width: 50%">
+                      <span>{{element.remain}}&nbsp;days</span>
+                    </div>
+                  </div>
+                  <p>
+                    <a href="{{element.link}}">+ more</a>
+                  </p>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                  <img src="images/proy2.jpeg" alt="...">
-                  <div class="caption">
-                    <h4>Title Proyect</h4>
-                    <p>Tiny description about the proyecto, no much more of 150 characters.</p>
-                    <p>
-                    <div class="progress progress-striped active">
-                      <div class="progress-bar" role="progressbar"
-                           aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-                           style="width: 25%">
-                        <span>2.000€/10.000€</span>
-                      </div>
-                    </div>
-                    <div class="progress progress-striped active">
-                      <div class="progress-bar" role="progressbar"
-                           aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
-                           style="width: 50%">
-                        <span>15 day left</span>
-                      </div>
-                    </div>
-
+            </div>
+          </div>
+        </div>
+        <!--Suggestion info-->
+        <div class="tab-pane fade"id="suggestion">
+          <div class="row">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="images/proy1.png" alt="...">
+                <div class="caption">
+                  <h4>Title Proyect</h4>
+                  <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+                  <p>
                     <a href="#">+ more</a>
-
-                    </p>
+                    <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="images/proy2.jpeg" alt="...">
+                <div class="caption">
+                  <h4>Title Proyect</h4>
+                  <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+                  <p>
+                    <a href="#">+ more</a>
+                    <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
+                  </p>
                 </div>
               </div>
             </div>
@@ -116,51 +156,43 @@
                   <h4>Title Proyect</h4>
                   <p>Tiny description about the proyecto, no much more of 150 characters.</p>
                   <p>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-success" role="progressbar"
-                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-                         style="width: 100%">
-                      <span>30.000€/30.000€</span>
-                    </div>
-                  </div>
-                  <div class="progress progress-striped active">
-                    <div class="progress-bar" role="progressbar"
-                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-                         style="width: 100%">
-                      <span>Completed!</span>
-                    </div>
-                  </div>
-
-                  <a href="#">+ more</a>
+                    <a href="#">+ more</a>
+                    <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
                   </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <!-- Profile info -->
+        <div class="tab-pane fade"id="profile">
+
+        </div>
+
       </div>
+
     </div>
+    </div>
+  <div id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 footer-col">
+        </div>
+        <div class="col-sm-3 footer-col">
+        </div>
+        <div class="col-sm-3 footer-col">
+        </div>
+        <div class="col-sm-3 footer-col">
+        </div>
+      </div>
     </div>
   </div>
-<div id="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-3 footer-col">
-      </div>
-      <div class="col-sm-3 footer-col">
-      </div>
-      <div class="col-sm-3 footer-col">
-      </div>
-      <div class="col-sm-3 footer-col">
-      </div>
-    </div>
+  <div id="copyleft">
+    COPYLEFT ALL RIGHTS ARE FREE FOR ALL PEOPLE ;)
   </div>
-</div>
-<div id="copyleft">
-  COPYLEFT ALL RIGHTS ARE FREE FOR ALL PEOPLE ;)
-</div>
-<script src="script/app.js"></script>
-<script src="script/index.js"></script>
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-</body>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/home.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+  </body>
 </html>

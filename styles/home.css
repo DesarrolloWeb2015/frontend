@@ -12,7 +12,6 @@ html,body{
   height: 75px;
   background-color: rgba(38, 39, 44, 0.85);
 }
-
 #logo {
   width: auto;
   float: left;
@@ -78,7 +77,6 @@ div#locations  > img{
   /*position: relative;
   top:50%;
   margin-top: -250px;*/
-  height: 70%;
   margin-top:30px;
 }
 .project { 
