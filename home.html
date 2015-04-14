@@ -49,15 +49,17 @@
           <li><a href="#crowfounding" data-toggle="tab">Crownfounding</a></li>
           <li><a href="#suggestion" data-toggle="tab">Suggestion</a></li>
           <li><a href="#profile" data-toggle="tab">Profile</a></li>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Buscar">
-          </div>
+
         </ul>
 
 
         <div class="tab-content">
+
           <!--Your project created-->
           <div class="tab-pane fade in active" id="projects">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail">
                 <img src="images/proy2.jpeg" alt="...">
@@ -91,6 +93,9 @@
 
         <!--Crowfounding Projects-->
         <div class="tab-pane fade"id="crowfounding" >
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
           <div ng-repeat="element in crowfounding">
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail">
@@ -122,6 +127,9 @@
         </div>
         <!--Suggestion info-->
         <div class="tab-pane fade"id="suggestion">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
           <div class="row">
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail">
@@ -166,7 +174,36 @@
         </div>
         <!-- Profile info -->
         <div class="tab-pane fade"id="profile">
+         <br>
+          <form role="form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name"
+                     placeholder="Name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" 
+                     placeholder="Email">
+            </div>  
+            <div class="form-group">
+              <label for="organization">Your Organization</label>
+              <input type="text" class="form-control" id="organization" 
+                     placeholder="Organization">
+            </div>
+            <div class="form-group">
+              <label for="github">Your Github link</label>
+              <input type="text" class="form-control" id="github" 
+                     placeholder="Github">
+            </div>
+            <div class="form-group">
+              <label for="picture">Profile Picture</label>
+              <input type="file" id="picture">
+              <p class="help-block">Select your picture</p>
+            </div>
 
+            <button type="submit" class="btn btn-default">Send</button>
+          </form>
         </div>
 
       </div>

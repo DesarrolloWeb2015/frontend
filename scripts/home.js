@@ -1,11 +1,8 @@
 angular.module('TecnoCrown')
   .controller('HomeCtrl', function($scope) {
     $scope.crowfounding = [
-    {name:'John',link:'www.prueba.html',description:'Esto es una prueba',current:'15.000',remain:'21',needed:'30.000',img:'images/proy1.png'},
-    {name:'John',link:'www.prueba.html',description:'Esto es una prueba',current:'15.000',remain:'21',needed:'30.000',img:'images/proy1.png'},
-    {name:'John',link:'www.prueba.html',description:'Esto es una prueba',current:'15.000',remain:'21',needed:'30.000',img:'images/proy1.png'},
-    {name:'John',link:'www.prueba.html',description:'Esto es una prueba',current:'15.000',remain:'21',needed:'30.000',img:'images/proy1.png'},
-    {name:'prueba',link:'www.prueba.html',description:'Esto es una prueba',current:'15.000',remain:'21',needed:'30.000',img:'images/proy1.png'},
-    {name:'prueba2',link:'www.prueba.html',description:'Esto es una prueba',current:'15.000',remain:'21',needed:'30.000',img:'images/proy1.png'}
+    {name:'TecnoCrown',link:'www.tecnocrown.html',description:'Projecto para la construccion de un portal web',current:'15.000',remain:'21',needed:'30.000',img:'images/proy1.png'},
+    {name:'Polymer',link:'www.prueba.html',description:'Desarrollo de web component mediante tecnología Polymer',current:'15.000',remain:'21',needed:'30.000',img:'images/imagen2.png'},
+    {name:'AngularJs',link:'www.prueba.html',description:'Desarrollo de librerias para representación de gráficos',current:'15.000',remain:'21',needed:'30.000',img:'images/angularjs.jpg'}
   ];
 });
