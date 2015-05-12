@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" ng-app="TecnoCrown">
+<html lang="es" ng-app="TecnoCrown" ng-controller="globalCtrl">
   <head>
     <meta charset="UTF-8">
     <script src="bower_components/angular/angular.min.js"></script>
@@ -101,7 +101,7 @@
               <div class="thumbnail">
                 <img src="{{element.img}}" alt="...">
                 <div class="caption">
-                  <h4>{{element.name}}</h4>
+                  <h4><a href="/project/{{element.id}}">{{element.name}}</a></h4>
                   <p>{{element.description}}</p>
                   <div class="progress progress-striped active">
                     <div class="progress-bar" role="progressbar"
@@ -231,5 +231,6 @@
   <script src="scripts/home.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>
   </body>
 </html>
