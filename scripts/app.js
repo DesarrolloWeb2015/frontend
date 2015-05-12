@@ -3,9 +3,7 @@
 	'use strict';
 	/**
 	 * @ngdoc overview
-	 * @name PolymerBricks
 	 * @description
-	 * # PolymerBricks
 	 *
 	 * Main module of the application.
 	*/
@@ -17,7 +15,7 @@
 
 		$routeProvider
 		.when('/', {
-			templateUrl: 'views/home.html',
+			templateUrl: 'index.html',
 			controller: 'HomeCtrl'
 
 	});
