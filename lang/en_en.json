@@ -1,0 +1,15 @@
+{
+  "home": "Home",
+  "project": "Project",
+  "about": "About Us",
+  "contact": "Contact",
+  "signin": "Signin",
+  "select_lang": "Choose your language",
+  "lang": {
+    "es": "Spanish",
+    "en": "English"
+  },
+  "slogan": "WE MAKE GROW",
+  "slogan2": "UP YOURS BIG IDEAS",
+  "more": "more"
+}
