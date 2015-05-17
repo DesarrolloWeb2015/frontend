@@ -10,6 +10,7 @@ app.config(function ($routeProvider) {
   });
 });
 
+/* Controlador para el idioma  (cambiar a directiva ?) */
 app.controller('globalCtrl',function($scope, $http){
   $scope.language = $scope.language || {};
 
@@ -26,6 +27,7 @@ app.controller('globalCtrl',function($scope, $http){
   };
 });
 
+/* Servicio para la conexion con el backend */ 
 app.service('$backend',function ($scope, $http) {
   this.login = function (user, password, callback, errorCallback) {
 
