@@ -1,18 +1,44 @@
-var app = angular.module("TecnoCrown", ['ngRoute']);
+/*
+* Tecnocorwd app
+*
+* */
+var tecnocrownApp = angular.module("tecnocrownApp", ['ngRoute']);
 
-app.config(function ($routeProvider) {
-
+tecnocrownApp.config(function ($routeProvider) {
   $routeProvider
-  /* Español */
-    .when('/project/:projectId', {
-    templateUrl: 'project.html',
-    controller: 'globalCtrl'
-  });
+      .when('/home', {
+          templateUrl: 'templates/home.html',
+          controller: 'globalCtrl'
+      })
+      .when('/projects',{
+          templateUrl: 'templates/projects_list.html',
+          controller: 'globalCtrl'
+      })
+      .when('/project/:projectId', {
+          templateUrl: 'templates/project_details.html',
+          controller: 'globalCtrl'
+      })
+      .when('/about', {
+          templateUrl: 'templates/about.html',
+          controller: 'globalCtrl'
+      })
+      .when('/contact', {
+          templateUrl: 'templates/contact.html',
+          controller: 'globalCtrl'
+      })
+      .when('/login', {
+          templateUrl: 'templates/login.html',
+          controller: 'globalCtrl'
+      })
+      .otherwise({
+          redirectTo: '/home'
+      });
 });
 
 /* Controlador para el idioma  (cambiar a directiva ?) */
-app.controller('globalCtrl',function($scope, $http){
-  $scope.language = $scope.language || {};
+tecnocrownApp.controller('globalCtrl',function($scope, $http, $routeParams){
+    $scope.language = $scope.language || {};
+    $scope.params = $routeParams;
 
   $http.get('lang/en_en.json').success(function (data,status) {
     $scope.language = data;
@@ -28,7 +54,7 @@ app.controller('globalCtrl',function($scope, $http){
 });
 
 /* Servicio para la conexion con el backend */ 
-app.service('$backend',function ($scope, $http) {
+tecnocrownApp.service('$backend',function ($scope, $http) {
   this.login = function (user, password, callback, errorCallback) {
 
   };
