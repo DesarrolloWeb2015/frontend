@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="TecnoCrown">
+<head>
+    <meta charset="UTF-8">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/create.css">
+    <title>TecnoCrown</title>
+
+</head>
+<body ng-controller="IndexCtrl">
+<div class="header">
+    <div class="container">
+        <img id="logo" src="images/logo5.png"/>
+        <div id="menu">
+            <ul>
+                <a herf="#">
+                    <li>Home</li>
+                </a>
+                <a href="/projects.html">
+                    <li>Projects</li>
+                </a>
+                <li>About us</li>
+                <li>Contact</li>
+                <li>Wellcome back Username</li>
+                <li class="navBtn logBtn">Logout <span class="glyphicon glyphicon-log-out"></span></li>
+                <!--<li class="navBtn sigBtn">Signin</li>-->
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="locations">
+    <div class="container">
+        <ul class="nav nav-pills">
+            <!--<li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Help</a></li>-->
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                    Choose your language <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">English</a></li>
+                    <li><a href="#" >Spanish</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="middleContent">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 create-project-container">
+                <form id="create-project">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon0">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Project name" aria-describedby="basic-addon1"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Project slogan" aria-describedby="basic-addon1"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group select-input">
+                                <!--input type="text" class="form-control" placeholder="Project slogan" aria-describedby="basic-addon1"/>-->
+                                <select class="form-control " id="select-type">
+                                    <option>Choose some category</option>
+                                    <option>Robotic</option>
+                                    <option>Software</option>
+                                    <option>Hardware</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <p>250 charactes</p>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">
+                        <!--    <span class="glyphicon glyphicon-pencil"></span>-->
+                        </span>
+                        <textarea class="form-control" placeholder="Tiny descriptions"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="dropzone">
+                                <p>Dropdown your files here</p>
+                                <span class="glyphicon glyphicon-arrow-down"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+
+                        </div>
+                    </div>
+                    <p>250 charactes</p>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2"></span>
+                        <textarea class="form-control" placeholder="Motivation"></textarea>
+                    </div>
+                    <p>250 charactes</p>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2"></span>
+                        <textarea class="form-control" placeholder="Prev impact"></textarea>
+                    </div>
+                    <label>Add a extra file <span>(pdf)</span>:</label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">
+                            <span class="glyphicon glyphicon-list-alt"></span>
+                        </span>
+                        <input type="file" class="form-control">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Initial Date:</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Ended Date</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    <label>Create budget <span class="glyphicon glyphicon-euro"></span></label>
+                    <p><a href="#">Add new field <span class="glyphicon glyphicon-plus"></span></a></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control"/>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="number" class="form-control"/>
+                        </div>
+                    </div>
+                    <p><a href="#">Add new field <span class="glyphicon glyphicon-plus"></span></a></p>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="button" value="Create" class="form-control btn btn-success">
+                            <input type="button" value="Reset" class="form-control btn btn-danger">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4 preview-project-container">
+                <div class="thumbnail">
+                    <img src="images/proy3.jpeg" alt="...">
+                    <div class="caption">
+                        <h4>Title Proyect</h4>
+                        <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+                        <p>
+                            <a href="#">+ more</a>
+                            <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sep"></div>
+<div id="outstadings">
+    <div class="container">
+        <h4>Anothers projects</h4>
+        <div class="row">
+            <div class="col-sm-6 col-sm-3">
+                <div class="thumbnail">
+                    <img src="images/proy1.png" alt="...">
+                    <div class="caption">
+                        <h4>Title Proyect</h4>
+                        <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+                        <p>
+                            <a href="#">+ more</a>
+                            <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-sm-3">
+                <div class="thumbnail">
+                    <img src="images/proy2.jpeg" alt="...">
+                    <div class="caption">
+                        <h4>Title Proyect</h4>
+                        <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+                        <p>
+                            <a href="#">+ more</a>
+                            <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-sm-3">
+                <div class="thumbnail">
+                    <img src="images/proy3.jpeg" alt="...">
+                    <div class="caption">
+                        <h4>Title Proyect</h4>
+                        <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+                        <p>
+                            <a href="#">+ more</a>
+                            <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-sm-3">
+                <div class="thumbnail">
+                    <img src="images/proy3.jpeg" alt="...">
+                    <div class="caption">
+                        <h4>Title Proyect</h4>
+                        <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+                        <p>
+                            <a href="#">+ more</a>
+                            <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 footer-col">
+            </div>
+            <div class="col-sm-3 footer-col">
+            </div>
+            <div class="col-sm-3 footer-col">
+            </div>
+            <div class="col-sm-3 footer-col">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="copyleft">
+    COPYLEFT ALL RIGHTS ARE FREE FOR ALL PEOPLE ;)
+</div>
+</div>
+
+<script src="script/app.js"></script>
+<script src="script/index.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+</body>
+</html>

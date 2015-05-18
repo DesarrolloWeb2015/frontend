@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="TecnoCrown">
+  <head>
+    <meta charset="UTF-8">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css"/>
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="styles/login.css"/>
+    <title>TecnoCrown</title>
+
+  </head>
+  <body ng-controller="IndexCtrl">
+    <div class="header">
+      <div class="container">
+        <a href="/">
+          <img id="logo" src="images/logo5.png"/>
+        </a>
+        <div id="menu">
+          <ul>
+            <a href="/home.html"><li>Home</li></a>
+            <a href="/projects.html"><li>Projects</li></a>
+            <a href="/about.html"><li>About us</li></a>
+            <a href="/contact.html"><li>Contact</li></a>
+            <a href="/login.html"><li class="navBtn sigBtn">Signin</li></a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="locations">
+      <div class="container">
+        <ul class="nav nav-pills">
+          <!--<li role="presentation" class="active"><a href="#">Home</a></li>
+<li role="presentation"><a href="#">Help</a></li>-->
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+              Choose your language <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">English</a></li>
+              <li><a href="#" >Spanish</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="middleContent">
+      <div class="container">
+        <h1 style="margin-right: 0px;">Help us to build this community!!</h1>
+        <div class="col-md-7 login-form-container">
+          <form action="#" id="login-form" class="col-md-7">
+            <div>
+              Log in to your admin panel, comment others projects and shared throughout our
+              community your opinion about this collaboration platform... and win helping us be more and more
+              known.
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">
+                <span class="glyphicon glyphicon-user"></span>
+              </span>
+              <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">
+                <span class="glyphicon glyphicon-asterisk"></span>
+              </span>
+              <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
+              <span>You forgot your password?</span>
+              <input type="button" value="Login">
+            </div>
+          </form>
+          <div class="right-login-buttons col-md-5">
+            <a class="btn btn-block btn-social btn-github" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
+              <i class="fa fa-github"></i> Sign in with GitHub
+            </a>
+            <a class="btn btn-block btn-social btn-twitter" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
+              <i class="fa fa-twitter"></i> Sign in with Twitter
+            </a>
+            <a class="btn btn-block btn-social btn-facebook" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
+              <i class="fa fa-facebook"></i> Sign in with Facebook
+            </a>
+            <a class="btn btn-block btn-social btn-google-plus" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
+              <i class="fa fa-google-plus"></i> Sign in with Google+
+            </a>
+            <a class="btn btn-block btn-social btn-linkedin" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
+              <i class="fa fa-linkedin"></i> Sign in with Linkedin
+            </a>
+            <a class="btn btn-block btn-social btn-bitbucket" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
+              <i class="fa fa-bitbucket"></i> Sign in with Btbucket
+            </a>
+            <a class="btn btn-block btn-social btn-microsoft" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
+              <i class="fa fa-windows"></i> Sign in with Microsoft
+            </a>
+          </div>
+        </div>
+        <div class="col-md-5 signin-form-container">
+          <form action="#" id="signin-form">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">
+                <span class="glyphicon glyphicon-user"></span>
+              </span>
+              <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">
+                <span class="glyphicon glyphicon-envelope"></span>
+              </span>
+              <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">
+                    <span class="glyphicon glyphicon-asterisk"></span>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">
+                    <span class="glyphicon glyphicon-phone"></span>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Phone Number" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">
+                    <span class="glyphicon glyphicon-asterisk"></span>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Repeat Password" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">
+                    <span class="glyphicon glyphicon-lock"></span>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Company" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Lastname" aria-describedby="basic-addon1">
+                </div>
+              </div>
+            </div>
+            <input type="checkbox">
+            <span style="color: azure">Do you want to recive newsletter?</span>
+            <input type="button" value="Signin" id="signin-btn"/>
+            <input type="button" value="Reset"/>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="sep"></div>
+    <div id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3 footer-col">
+          </div>
+          <div class="col-sm-3 footer-col">
+          </div>
+          <div class="col-sm-3 footer-col">
+          </div>
+          <div class="col-sm-3 footer-col">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="copyleft">
+      COPYLEFT ALL RIGHTS ARE FREE FOR ALL PEOPLE ;)
+    </div>
+    </div>
+
+  <script src="script/app.js"></script>
+  <script src="script/index.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+  </body>
+</html>
