@@ -1,10 +1,6 @@
-/*
-* Tecnocorwd app
-*
-* */
-var tecnocrownApp = angular.module("tecnocrownApp", ['ngRoute']);
+var tecnocrownApp = angular.module("tecnocrownApp", ['ngRoute', 'apiService']);
 
-tecnocrownApp.config(function ($routeProvider) {
+tecnocrownApp.config(function ($routeProvider){
   $routeProvider
       .when('/home', {
           templateUrl: 'templates/home.html',
@@ -36,48 +32,50 @@ tecnocrownApp.config(function ($routeProvider) {
 });
 
 /* Controlador para el idioma  (cambiar a directiva ?) */
-tecnocrownApp.controller('globalCtrl',function($scope, $http, $routeParams){
+tecnocrownApp.controller('globalCtrl',['$scope', '$http','api', '$routeParams',function($scope, $http,api, $routeParams){
     $scope.language = $scope.language || {};
     $scope.params = $routeParams;
 
-  $http.get('lang/en_en.json').success(function (data,status) {
-    $scope.language = data;
-  });
+    $http.get('lang/en_en.json').success(function (data,status) {
+        $scope.language = data;
 
-  $scope.changelang = function (language) {
-    var file;
-    file = language + '_' + language + '.json';
-    $http.get('lang/' + file).success(function (data,status) {
-      $scope.language = data;
+        $scope.changelang = function (language) {
+            var file;
+            file = language + '_' + language + '.json';
+            $http.get('lang/' + file).success(function (data, status) {
+                $scope.language = data;
+            });
+        };
     });
-  };
-});
 
-/* Servicio para la conexion con el backend */ 
-tecnocrownApp.service('$backend',function ($scope, $http) {
-  this.login = function (user, password, callback, errorCallback) {
+    //api.getProjects()
+}]);
 
-  };
+tecnocrownApp.controller('signinCrtl',['$scope', 'api', function($scope, api){
+    $scope.userObj = $scope.userObj || {};
 
-  this.logout = function (user, callback, errorCallback) {
+    $scope.reset = function(){
+        $scope.user = angular.copy($scope.userObj);
+    };
 
-  };
+    // launch signin form
+    $scope.update = function(user){
+        $scope.userObj = angular.copy(user)
+        console.log("SENDING:::: "+JSON.stringify($scope.userObj))
+        api.singin($scope.userObj)
+    };
+}]);
 
-  this.createProject = function (user,name, tille, time, money ,callback, errorCallback) {
+tecnocrownApp.controller('loginCrtl',['$scope', 'api', function($scope, api){
+    $scope.userObj = $scope.userObj || {};
 
-  };
+    $scope.reset = function(){
+        $scope.user = angular.copy($scope.userObj);
+    };
 
-  this.myProject = function (user, callback, errorCallback) {
-
-  };
-
-  this.deleteMyProject = function (user,projectId, callback, errorCallback) {
-
-  };
-
-  this.addCrownfounding = function (user, projectId, money, callback, errorCallback) {
-
-  };
-
-
-});
+    // launch signin form
+    $scope.update = function(user){
+        $scope.userObj = angular.copy(user)
+        console.log($scope.userObj)
+    };
+}]);
