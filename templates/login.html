@@ -12,13 +12,13 @@
                     known.
                 </div>
                 <div class="input-group">
-              <span class="input-group-addon" id="basic-addon1">
+              <span class="input-group-addon" id="basic-addon0">
                 <span class="glyphicon glyphicon-user"></span>
               </span>
                     <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group">
-              <span class="input-group-addon" id="basic-addon1">
+              <span class="input-group-addon" id="basic-addon00">
                 <span class="glyphicon glyphicon-asterisk"></span>
               </span>
                     <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
@@ -29,19 +29,19 @@
                 </div>
             </form>
             <div class="right-login-buttons col-md-5">
-                <a class="btn btn-block btn-social btn-github" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
+                <!--<a class="btn btn-block btn-social btn-github" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
                     <i class="fa fa-github"></i> Sign in with GitHub
                 </a>
                 <a class="btn btn-block btn-social btn-twitter" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
                     <i class="fa fa-twitter"></i> Sign in with Twitter
-                </a>
+                </a>-->
                 <a class="btn btn-block btn-social btn-facebook" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
                     <i class="fa fa-facebook"></i> Sign in with Facebook
                 </a>
                 <a class="btn btn-block btn-social btn-google-plus" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
                     <i class="fa fa-google-plus"></i> Sign in with Google+
                 </a>
-                <a class="btn btn-block btn-social btn-linkedin" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
+                <!--<a class="btn btn-block btn-social btn-linkedin" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
                     <i class="fa fa-linkedin"></i> Sign in with Linkedin
                 </a>
                 <a class="btn btn-block btn-social btn-bitbucket" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
@@ -49,69 +49,70 @@
                 </a>
                 <a class="btn btn-block btn-social btn-microsoft" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
                     <i class="fa fa-windows"></i> Sign in with Microsoft
-                </a>
+                </a>-->
             </div>
         </div>
         <div class="col-md-5 signin-form-container">
-            <form action="#" id="signin-form">
+            <form action="#" id="signin-form" ng-controller="signinCrtl">
                 <div class="input-group">
               <span class="input-group-addon" id="basic-addon1">
                 <span class="glyphicon glyphicon-user"></span>
               </span>
-                    <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" id="username_signin"
+                           placeholder="Username" aria-describedby="basic-addon1" ng-model="user.username">
                 </div>
                 <div class="input-group">
-              <span class="input-group-addon" id="basic-addon1">
+              <span class="input-group-addon" id="basic-addon2">
                 <span class="glyphicon glyphicon-envelope"></span>
               </span>
-                    <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1" ng-model="user.email">
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon1">
+                  <span class="input-group-addon" id="basic-addon3">
                     <span class="glyphicon glyphicon-asterisk"></span>
                   </span>
-                            <input type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1" ng-model="user.password">
                         </div>
                         <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon1">
+                  <span class="input-group-addon" id="basic-addon4">
                     <span class="glyphicon glyphicon-phone"></span>
                   </span>
-                            <input type="text" class="form-control" placeholder="Phone Number" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="Phone Number" aria-describedby="basic-addon1" ng-model="user.phonenumber">
                         </div>
                         <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon1">
+                  <span class="input-group-addon" id="basic-addon5">
                     <span class="glyphicon glyphicon-pencil"></span>
                   </span>
-                            <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-addon1" ng-model="user.name">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon1">
+                  <span class="input-group-addon" id="basic-addon6">
                     <span class="glyphicon glyphicon-asterisk"></span>
                   </span>
-                            <input type="text" class="form-control" placeholder="Repeat Password" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="Repeat Password" aria-describedby="basic-addon1" ng-model="user.r_password">
                         </div>
                         <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon1">
+                  <span class="input-group-addon" id="basic-addon7">
                     <span class="glyphicon glyphicon-lock"></span>
                   </span>
-                            <input type="text" class="form-control" placeholder="Company" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="Company" aria-describedby="basic-addon1" ng-model="user.company">
                         </div>
                         <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon1">
+                  <span class="input-group-addon" id="basic-addon8">
                     <span class="glyphicon glyphicon-pencil"></span>
                   </span>
-                            <input type="text" class="form-control" placeholder="Lastname" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="Lastname" aria-describedby="basic-addon1" ng-model="user.lastname">
                         </div>
                     </div>
                 </div>
-                <input type="checkbox">
+                <input type="checkbox" ng-model="user.newsletter">
                 <span style="color: azure">Do you want to recive newsletter?</span>
-                <input type="button" value="Signin" id="signin-btn"/>
-                <input type="button" value="Reset"/>
+                <input type="button" value="Signin" id="signin-btn" ng-click="update(user)"/>
+                <input type="button" value="Reset" ng-click="this.reset()"/>
             </form>
         </div>
     </div>
