@@ -47,8 +47,6 @@ tecnocrownApp.controller('globalCtrl',['$scope', '$http','api', '$routeParams',f
             });
         };
     });
-
-    //api.getProjects()
 }]);
 
 tecnocrownApp.controller('signinCrtl',['$scope', 'api', function($scope, api){

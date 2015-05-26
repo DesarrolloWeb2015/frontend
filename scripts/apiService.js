@@ -19,11 +19,11 @@ apiService.service('api',['$http',function ($http) {
             $http.post('http://aiocs.es/users/', data)
                 .success(function (data, status, headers, config) {
                     console.log("HEADER: " + headers)
-                    console.log("DATA: " + data)
+                    console.log("DATA: " + JSON.stringify(data))
                     console.log("STATUS: " + status)
                 })
                 .error(function (data, status) {
-                    console.log("DATA: " + data);
+                    console.log("DATA ER: " + data)
                     console.log("STATUS: " + status);
                 });
         }
