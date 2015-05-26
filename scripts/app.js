@@ -26,6 +26,10 @@ tecnocrownApp.config(function ($routeProvider){
           templateUrl: 'templates/login.html',
           controller: 'globalCtrl'
       })
+      .when('/validate', {
+          templateUrl: 'templates/validate_account.html',
+          controller: 'validateCtrl'
+      })
       .otherwise({
           redirectTo: '/home'
       });
@@ -76,4 +80,8 @@ tecnocrownApp.controller('loginCrtl',['$scope', 'api', function($scope, api){
         $scope.userObj = angular.copy(user)
         console.log($scope.userObj)
     };
+}]);
+
+tecnocrownApp.controller('validateCtrl', ['api', '$location', function(api, $location){
+    api.validate_account($location.search());
 }]);

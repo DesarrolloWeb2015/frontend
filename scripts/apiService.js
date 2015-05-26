@@ -28,6 +28,27 @@ apiService.service('api',['$http',function ($http) {
                 });
         }
     };
+
+    this.validate_account = function(params){
+        console.log(params)
+        if(params.c){
+            validate_code = params.c;
+            // search user whit code params.c
+            $http.get('http://aiocs.es/users/validate_account?c='+params.c)
+                .success(function(data, status, headers, config){
+                    console.log("STATUS: "+ JSON.stringify(data))
+                    console.log("STATUS: "+status)
+                })
+                .error(function(data, status){
+                    console.log("STATUS: "+ JSON.stringify(data))
+                    console.log("STATUS ERR: "+status)
+                })
+        }
+
+        // if exist validate
+        // update validate field on DB
+        // else redirect to template error
+    };
     /*
     this.login = function (user, password, callback, errorCallback) {
 

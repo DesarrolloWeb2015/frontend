@@ -170,6 +170,10 @@ div#locations  > img{
     color: azure;
     background-color: rgba(200,200,200,0.50);
 }
+div.container > div.login-form-container{
+    height: 312px;
+    color: #FFF;
+}
 .login-form-container, .signin-form-container{
     background-color: rgba(88,88,88,0.85);
     padding:20px;
