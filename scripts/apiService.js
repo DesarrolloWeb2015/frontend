@@ -23,7 +23,7 @@ apiService.service('api',['$http',function ($http) {
                     console.log("STATUS: " + status)
                 })
                 .error(function (data, status) {
-                    console.log("DATA ER: " + data)
+                    console.log("DATA ER: " + JSON.stringify(data))
                     console.log("STATUS: " + status);
                 });
         }
