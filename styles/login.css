@@ -177,6 +177,9 @@ div.container > div.login-form-container{
     height: 222px;
     color: #FFF;
 }
+div.container > div.login-form-container.left {
+  height:312px;
+}
 .login-form-container, .signin-form-container{
     background-color: rgba(88,88,88,0.85);
     padding:20px;

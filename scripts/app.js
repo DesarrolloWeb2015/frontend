@@ -1,6 +1,7 @@
-var tecnocrownApp = angular.module("tecnocrownApp", ['ngRoute']);
+var tecnocrownApp = angular.module("tecnocrownApp", ['ngRoute','ngMd5']);
 
-tecnocrownApp.config(function ($routeProvider){
+tecnocrownApp.config(function ($routeProvider,$locationProvider){
+
   $routeProvider
     .when('/home', {
     templateUrl: 'templates/home.html',
@@ -30,9 +31,21 @@ tecnocrownApp.config(function ($routeProvider){
     templateUrl: 'templates/validate_account.html',
     controller: 'validateCtrl'
   })
-    .when('/profile',{
+    .when('/profile/:username', {
     templateUrl: 'templates/profile.html',
-    controller: 'globalCtrl'
+    controller: 'globalCtrl',
+    resolve: {
+      auth: ["$q", "$cookie","md5","$routeParams", function($q, $cookie,md5,$routeParams){
+
+        var session = $cookie.get('session');
+        var username = window.location.hash.split('/')[2]
+        if (session && md5.createHash(username) === session) {
+          return $q.when(session);
+        } else {
+          return $q.reject({authenticated: false})
+        }
+      }]
+    }
   })
     .when('/new_project',{
     templateUrl: 'templates/create_project.html',
@@ -42,15 +55,58 @@ tecnocrownApp.config(function ($routeProvider){
     redirectTo: '/home'
   });
 });
-
+tecnocrownApp.run(["$rootScope", "$location", function($rootScope, $location) {
+  $rootScope.$on("$routeChangeError", function(event, current, previous, eventObj) {
+    if (eventObj.authenticated === false) {
+      $location.path("/");
+    }
+  });
+}]);
 tecnocrownApp.directive('projectDirective', [], function(){
   return {
     templateUrl: "templates/project_template.html"
     //controller: "projectCtrl"
   }
 });
+tecnocrownApp.service('$cookie', function () {
+  this.get = function (name) {
+    var cookies, result, patron, exp;
+    cookies = document.cookie;
+    patron = name+"=([^&#]*)";
+    exp = new RegExp(patron);
+    result = exp.exec(cookies);
+    return result ? result[1] : undefined;
+  };
+  this.put  = function (key, value, expires, path, domain, secure) {
+    var cookie;
+    cookie = key + '=' + value;
+    if (expires) {
+      cookie += '; expires=' + expires;
+    }
+    if (path) {
+      cookie += '; path=' + path; 
+    }
+    if (domain) {
+      cookie += '; domain=' + domain;
+    }
+    if (secure) {
+      cookie +='; secure';
+    }
+    document.cookie = cookie;
+  };
 
-tecnocrownApp.service('api',['$http', function ($http, $location) {
+  this.delete = function (name) {
+    document.cookie = name + '=; expires= Thu, 01 jan 1970 00:00:00 UTC';
+  }
+  this.set = function (key, value, expires, path, domain, secure) {
+    this.put(key, value, expires, path, domain, secure); 
+  };
+  this.getAll = function () {
+    return document.cookie;
+  }
+});
+
+tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, md5) {
   var projects = {}
   var user = {}
 
@@ -73,11 +129,11 @@ tecnocrownApp.service('api',['$http', function ($http, $location) {
         .success(function (data, status, headers, config) {
         if (callback)
           callback(data,status)
-      })
+          })
         .error(function (data, status) {
         if (errorCallback)
           errorCallback(data,status)
-      });
+          });
     }
   };
 
@@ -102,14 +158,17 @@ tecnocrownApp.service('api',['$http', function ($http, $location) {
     if(user.password && user.username){
       $http.get('http://aiocs.es/users/login_user?username='+user.username+'&password='+user.password)
         .success(function(data, status, headers, config){
-        if (callback)
+        if (callback) {
           callback(data,stat)
+        }
         this.user = data
+        console.log(data);
+        $cookie.put('session',md5.createHash(data.username))
       })
         .error(function(data, status){
-          if (errorCallback)
+        if (errorCallback)
           errorCallback(data,stat)
-      })
+          })
     }
   };
 
@@ -144,10 +203,6 @@ tecnocrownApp.service('api',['$http', function ($http, $location) {
      */
 
 }]);
-
-
-
-
 /* Controlador para el idioma  (cambiar a directiva ?) */
 tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams',function($scope, $http,api, $routeParams){
   $scope.language = $scope.language || {};
@@ -185,7 +240,7 @@ tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams',fu
 
 }]);
 
-tecnocrownApp.controller('signinCrtl',['$scope', 'api','$location', function($scope, api, $location){
+tecnocrownApp.controller('signinCrtl',['$scope', 'api','$location','md5',"$cookie", function($scope, api, $location,md5,$cookie){
   $scope.userObj = $scope.userObj || {};
   $scope.reset = function(){
     $scope.user = angular.copy($scope.userObj);
@@ -199,6 +254,8 @@ tecnocrownApp.controller('signinCrtl',['$scope', 'api','$location', function($sc
         $scope.error = '';
         console.log("SENDING:::: "+JSON.stringify($scope.userObj))
         var callback = function() {
+          var session = md5.createHash(user.username)
+          $cookie.put('session',session)
           $location.path("/validate")
         };
         var errorCallback = function(){
