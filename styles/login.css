@@ -174,7 +174,7 @@ div#locations  > img{
     background-color: rgba(200,200,200,0.50);
 }
 div.container > div.login-form-container{
-    height: 312px;
+    height: 222px;
     color: #FFF;
 }
 .login-form-container, .signin-form-container{
@@ -207,4 +207,7 @@ div.container > div.login-form-container{
 }
 #signin-form input[type='button']#signin-btn{
     border: 2px solid #119b00;
+}
+p#error {
+ color:white; 
 }
