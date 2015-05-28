@@ -83,6 +83,7 @@ div#locations  > img{
   width: 800px;
   height: 600px;
   margin: auto auto;
+    background-color: rgba(220,220,220,0.7);
 }
 .progress-bar > span {
   color:black;
@@ -98,4 +99,11 @@ div#locations  > img{
   height: 30px;
   width: 100%;
   text-align: center;
+}
+div.emptyMsg{
+    padding: 10px;
+}
+#middleContent h2{
+    text-align: left;
+    margin: 0px;
 }

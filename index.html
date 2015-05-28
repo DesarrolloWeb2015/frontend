@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" ng-app="tecnocrownApp" ng-controller="globalCtrl">
+<html lang="es" ng-app="tecnocrownApp" ng-controller="globalCtrl" ">
   <head>
     <meta charset="UTF-8">
     <script src="bower_components/angular/angular.min.js"></script>
@@ -9,7 +9,7 @@
     <title>TecnoCrown - projects</title>
 
   </head>
-  <body>
+  <body ng-init="user.username='test1'">
     <div class="header">
       <div class="container">
 
@@ -23,7 +23,9 @@
             <a href="#/projects"><li>{{language.project}}</li></a>
             <a href="#/about"><li>{{language.about}}</li></a>
             <a href="#/contact"><li>{{language.contact}}</li></a>
-            <a href="#/login"><li class="navBtn sigBtn">{{language.signin}}</li></a>
+            <a href="#/login" ng-if="!user.username"><li class="navBtn sigBtn">{{language.signin}}</li></a>
+            <a href="#/profile" ng-if="user.username"><li>Bienvenido {{user.username}}</li></a>
+            <a href="#/logout" ng-if="user.username"><li class="navBtn logBtn">logout</li></a>
           </ul>
         </div>
       </div>
@@ -65,10 +67,9 @@
     </div>
     </div>
     <script src="bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.min.js" type="text/javascript"></script>
     <script src="scripts/apiService.js"></script>
-    <!--<script src="scripts/routes.js"></script>-->
     <script src="scripts/app.js"></script>
-    <!--<script src="scripts/index.js"></script>-->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
   </body>

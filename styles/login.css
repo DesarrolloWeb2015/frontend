@@ -57,6 +57,9 @@ div#menu > ul  li.sigBtn {
 div#menu > ul  li.logBtn {
     border: 2px solid #c57a1c;
 }
+div#menu > ul  li.logoBtn{
+    border: 2px solid #c57a1c;
+}
 div#menu > ul  li:hover {
     background-color:#646464;
     color: white;
