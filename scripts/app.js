@@ -58,7 +58,7 @@ tecnocrownApp.service('api',['$http', function ($http) {
         $http.get('http://aiocs.es/projects/').
             success(function(data, staus, headers, config){
                 console.log("DATA"+JSON.stringify(data))
-                $scope.projects = data;
+                this.projects = data;
             }).
             error(function(data, staus, headers, config){
                 console.log("ERROR")
@@ -105,7 +105,7 @@ tecnocrownApp.service('api',['$http', function ($http) {
                 .success(function(data, status, headers, config){
                     console.log("STATUS: "+ JSON.stringify(data))
                     console.log("STATUS: "+status)
-                    //$scope.user = data
+                    this.user = data
                 })
                 .error(function(data, status){
                     //console.log("STATUS: "+ JSON.stringify(data))
@@ -176,8 +176,10 @@ tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams',fu
     // launch login form
     $scope.login = function(user){
         $scope.userObj = angular.copy(user)
-        if($scope.userObj.username !== "" && $scope.userObj.password !== "")
-            api.auth($scope.userObj)
+        if($scope.userObj.username !== "" && $scope.userObj.password !== "") {
+            api.auth($scope.userObj);
+            $scope.user = api.usr
+        }
         else
         // TBD: form not valid
             return false;
