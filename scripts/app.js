@@ -121,6 +121,7 @@ tecnocrownApp.service('api',['$http', function ($http) {
         auth: auth,
         singin: singin,
         getProjects: getProjects,
+        validate_account: validate_account,
     }
     /*
      this.logout = function (user, callback, errorCallback) {
