@@ -34,7 +34,7 @@ tecnocrownApp.config(function ($routeProvider){
             templateUrl: 'templates/profile.html',
             controller: 'globalCtrl'
         })
-        .when('/new_projec',{
+        .when('/new_project',{
             templateUrl: 'templates/create_project.html',
             controller: 'globalCtrl'
         })
