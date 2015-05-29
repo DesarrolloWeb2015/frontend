@@ -17,17 +17,17 @@
               <span class="input-group-addon" id="basic-addon0">
                 <span class="glyphicon glyphicon-user"></span>
               </span>
-                    <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" placeholder="Username" ng-model="user.username"aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group">
               <span class="input-group-addon" id="basic-addon00">
                 <span class="glyphicon glyphicon-asterisk"></span>
               </span>
-                    <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+                    <input type="password" class="form-control" placeholder="Password" ng-model="user.password"aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group">
                     <span>You forgot your password?</span>
-                    <input type="button" value="Login">
+                    <input type="button" value="Login" ng-click="this.login(user)">
                 </div>
             </form>
         </div>
