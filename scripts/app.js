@@ -70,13 +70,10 @@ tecnocrownApp.directive('projectDirective', [], function(){
 });
 tecnocrownApp.service('$cookie', function () {
   this.get = function (name) {
-    var cookies, result, patron, exp;
-    cookies = document.cookie;
-    patron = name+"=([^&#]*)";
-    exp = new RegExp(patron);
-    result = exp.exec(cookies);
-    return result ? result[1] : undefined;
-  };
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift()
+      };
   this.put  = function (key, value, expires, path, domain, secure) {
     var cookie;
     cookie = key + '=' + value;
@@ -129,7 +126,7 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
     // send mail to confirm email account
     if(data.r_password === data.password) {
       delete data.r_password;
-      $http.post('http://aiocs.es/users/', data)
+      $http.post('http://aiocs.es/users/', JSON.stringify(data))
         .success(function (data, status, headers, config) {
         if (callback)
           callback(data,status);
@@ -167,6 +164,8 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
         this.user = data
         console.log(data);
         $cookie.put('session',md5.createHash(data.username))
+        $cookie.put('username',user.username);
+        $scope.username = user.username;
       })
         .error(function(data, status){
         if (errorCallback)
@@ -186,47 +185,104 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
         errorCallback(data,status);
     });
   };
+  this.getUserCrowfounding = function(username,callback,errorCallback) { 
+    $http.get('http://aiocs.es/users/'+username+'collaborators')
+      .success(function(data,status) {
+
+    })
+      .error(function(data,status) {
+
+    });
+
+  };
+  this.setUser = function (username,user, callback, errorCallback) {
+    $http.put('http://aiocs.es/users/'+username,JSON.stringify(user))
+      .success(function (data, status) {
+      console.log("fue bien", data,status);
+    })
+      .error (function (data,status) {
+      console.log('fue mal', data, status);
+    });
+  };
+  this.getUser = function(username,callback,errorCallback) {
+    $http.get('http://aiocs.es/users/'+username)
+      .success(function(data,status) {
+      if (callback) 
+        callback(data,status);
+    })
+      .error(function(data, status) {
+      if (errorCallback)
+        errorCallback(data,status);
+    });
+
+  };
+  this.createProject = function(project,callback, errorCallback) {
+    $http.post('http://aiocs.es/project',JSON.stringify(project))
+      .success(function (data,status) {
+      if (callback)
+        callback(data,status)
+        })
+      .error(function (data, status) {
+      if (errorCallback)
+        errorCallback(data, status);
+    });
+  };
   return {
     projects: this.projects,
     usr: this.user,
+    setUser: this.setUser,
     auth: this.auth,
     singin: this.singin,
     getProjects: this.getProjects,
     validate_account: this.validate_account,
-    getUserProjects:  this.getUserProjects
+    getUserProjects:  this.getUserProjects,
+    getUserCrowfounding: this.getUserCrowfounding,
+    getUser: this.getUser,
+    createProject: this.createProject
   }
-  /*
-     this.logout = function (user, callback, errorCallback) {
-
-     };
-
-     this.createProject = function (user,name, tille, time, money ,callback, errorCallback) {
-
-     };
-
-     this.myProject = function (user, callback, errorCallback) {
-
-     };
-
-     this.deleteMyProject = function (user,projectId, callback, errorCallback) {
-
-     };
-
-     this.addCrownfounding = function (user, projectId, money, callback, errorCallback) {
-
-     };
-     */
-
 }]);
 /* Controlador para el idioma  (cambiar a directiva ?) */
-tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '$location',function($scope, $http,api, $routeParams, $location){
+tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '$location','md5','$cookie',function($scope, $http,api, $routeParams, $location,md5,$cookie){
   $scope.language = $scope.language || {};
   $scope.params = $routeParams;
   $scope.user = {}
-  api.getProjects
-  $scope.projects = api.projects
-  console.log($scope.projects)
+  $scope.status = $cookie.get('session') ? true : false;
+  $scope.username = $cookie.get('username');
+  $scope.page = 0;
 
+  $scope.projects = [
+    {name:'TecnoCrown',link:'www.tecnocrown.html',description:'Projecto para la construccion de un portal web',current:'15.000',remain:'21',needed:'30.000',img:'images/proy1.png',id:'1'},
+    {name:'Polymer',link:'www.prueba.html',description:'Desarrollo de web component mediante tecnología Polymer',current:'15.000',remain:'21',needed:'30.000',img:'images/imagen2.png', id: '2'},
+    {name:'AngularJs',link:'www.prueba.html',description:'Desarrollo de librerias para representación de gráficos',current:'15.000',remain:'21',needed:'30.000',img:'images/angularjs.jpg', id:'3'},
+    {name:'AngularJs',link:'www.prueba.html',description:'Desarrollo de librerias para representación de gráficos',current:'15.000',remain:'21',needed:'30.000',img:'images/angularjs.jpg', id:'3'},
+    {name:'AngularJs',link:'www.prueba.html',description:'Desarrollo de librerias para representación de gráficos',current:'15.000',remain:'21',needed:'30.000',img:'images/angularjs.jpg', id:'3'}
+  ];
+
+  $scope.initial = {}
+
+  $scope.load = function() {
+    api.getProjects($scope.page,function(data) {$scope.projects=data;$scope.next(0)});
+  };
+
+  $scope.next = function(next){
+
+    $scope.page+=next;
+    var pointer = 3*$scope.page;
+    var restantes = ($scope.projects.length - pointer);
+    if (next<0){
+      $scope.page+=next;
+    } else if ( restantes <= 0 ){
+      $scope.page-=next;
+    } else if ( restantes ==1) {
+      $scope.initial = [$scope.projects[(pointer-2)],$scope.projects[(pointer)-1],$scope.projects[(pointer)]];
+    } else if (restantes == 2) {
+      $scope.initial = [$scope.projects[(pointer-1)],$scope.projects[(pointer)],$scope.projects[(pointer)+1]]; 
+    } else {
+      $scope.initial = [$scope.projects[(pointer)],$scope.projects[(pointer)+1],$scope.projects[(pointer)+2]];
+    }
+
+  }
+  $scope.next(0);
   $http.get('lang/es_es.json').success(function (data,status) {
     $scope.language = data;
 
@@ -241,18 +297,37 @@ tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '
 
   $scope.userObj = $scope.userObj || {};
 
-  // launch login form
-  $scope.login = function(user){
+  $scope.dividir = 
+    // launch login form
+    $scope.login = function(user){
     $scope.userObj = angular.copy(user)
     if($scope.userObj.username !== "" && $scope.userObj.password !== "") {
       api.auth($scope.userObj);
       $scope.user = api.usr
-      $location.path('/profile/'+user.username);
+      if (api.usr) {
+        $scope.$parent.status = true;
+        var session = md5.createHash(user.username)
+        $cookie.put('session',session)
+        $cookie.put('username',user.username);
+        $cookie.$parent.username = user.username;
+        $location.path('/profile/'+user.username);
+      } else {
+        //tratar error 
+      }
     }
     else
       $scope.loginError = true;
     return false;
   };
+  // Logout
+  $scope.logout = function() {
+    $scope.status = false;
+    $cookie.delete('session');
+    $location.path('/home');
+  };
+
+  /* Cargamos la funcion inicial*/
+  $scope.load()
 
 }]);
 
@@ -261,17 +336,14 @@ tecnocrownApp.controller('signinCrtl',['$scope', 'api','$location','md5',"$cooki
   $scope.reset = function(){
     $scope.user = angular.copy($scope.userObj);
   };
-
+  $scope.language = $scope.$parent.language;
   // launch signin form
   $scope.update = function(user){
     if (user) {
       if (user.password === user.r_password && user.password && user.username && user.email) {
         $scope.userObj = angular.copy(user)
         $scope.error = '';
-        console.log("SENDING:::: "+JSON.stringify($scope.userObj))
         var callback = function() {
-          var session = md5.createHash(user.username)
-          $cookie.put('session',session)
           $location.path("/validate")
         };
         var errorCallback = function(){
@@ -289,14 +361,76 @@ tecnocrownApp.controller('signinCrtl',['$scope', 'api','$location','md5',"$cooki
   };
 }]);
 
-/*tecnocrownApp.controller('loginCrtl',['$scope', 'api', function($scope, api){
 
-}]);*/
-
+/* Controlador validador*/
 tecnocrownApp.controller('validateCtrl', ['api', '$location', function(api, $location){
   api.validate_account($location.search());
 }]);
+
+
+/*
+*
+* Controlador del perfil
+*/
+
 tecnocrownApp.controller('profileCtrl',['$scope', 'api', '$cookie', function($scope, api, $cookie) {
-  $scope.projects = api.projects || {};
-  $scope.yourProject = api.getUserProjects($scope.$parent.params.username) || {}
+
+  $scope.username = $scope.$parent.params.username;
+  $scope.crowfounding = {}
+  $scope.yourProject = {}
+  $scope.crowfounding = [
+    {name:'TecnoCrown',link:'www.tecnocrown.html',description:'Projecto para la construccion de un portal web',current:'15.000',remain:'21',needed:'30.000',img:'images/proy1.png',id:'1'},
+    {name:'Polymer',link:'www.prueba.html',description:'Desarrollo de web component mediante tecnología Polymer',current:'15.000',remain:'21',needed:'30.000',img:'images/imagen2.png', id: '2'},
+    {name:'AngularJs',link:'www.prueba.html',description:'Desarrollo de librerias para representación de gráficos',current:'15.000',remain:'21',needed:'30.000',img:'images/angularjs.jpg', id:'3'},
+    {name:'AngularJs',link:'www.prueba.html',description:'Desarrollo de librerias para representación de gráficos',current:'15.000',remain:'21',needed:'30.000',img:'images/angularjs.jpg', id:'3'}
+  ];
+  $scope.active = 1;
+  $scope.msg=''  
+
+  $scope.load = function() {
+    api.getUserCrowfounding($scope.usrename,function(data){$scope.crowfounding = data})
+    api.getUserProjects($scope.username,function(data){$scope.yourProject = data})
+    api.getUser($scope.username, function(data){$scope.yourProject = data})
+  }
+
+  /* cargamos los datos */
+  $scope.load();
+
+  $scope.sendProfile = function (user) {
+    if (Object.keys(user).length!=0) {
+      api.setUser($scope.username, user);
+    }
+  };
+}]);
+
+tecnocrownApp.controller('createCtrl', ['$scope','api','$location','$timeout', function($scope,api, $location, $timeout) {
+  $scope.project = {};
+  $scope.projectObj = {};
+  $scope.modal = false;
+  $scope.reset = function(){
+    $scope.project = angular.copy($scope.userObj);
+  };
+  $scope.create = function (project) {
+    var currentTime = new Date().getTime()
+    if (Object.keys(project).length !== 11) {
+      $scope.error = '* Hay que rellenar todos los campos'
+    } else {
+      var inicialTime = new Date(project.initialDate)
+      var endDate = new Date(project.endDate)
+
+      if (inicialTime >= endDate || inicialTime > currentTime || endDate <= currentTime){
+        $scope.error = '* Las fechas no son validas'
+
+      } else {
+        project.username = $scope.$parent.username;
+
+        var callback = function (){
+          $scope.modal = true;
+          $timeout(function(){$scope.modal = false},2000);
+        }
+        api.createProject(project,callback);
+
+      }
+    }
+  }
 }]);

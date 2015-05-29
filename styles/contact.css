@@ -3,8 +3,7 @@
   padding:0;
 }
 body {
-  /*background-image: url('../images/background.png');*/
-  /*background-color: azure;*/
+  background-image: url('../images/background.png');
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -58,6 +57,9 @@ div#menu > ul  li.sigBtn {
 div#menu > ul  li.logBtn {
   border: 2px solid #c57a1c;
 }
+div#menu > ul  li.logoBtn{
+  border: 2px solid #c57a1c;
+}
 div#menu > ul  li:hover {
   background-color:#646464;
   color: white;
@@ -81,15 +83,15 @@ div#locations  > img{
 #middleContent{
   /*position: relative;
   top:50%;
-  margin-top: -250px;
-  height: 70%;*/
+  margin-top: -250px;*/
+  margin: 0 auto;
+  height: 70%;
   margin-bottom: 100px;
-  margin-top:10px;
+  margin-top:70px;
 }
 #middleContent h1, #middleContent h2{
-  text-align: right;
-  width: 650px;
-  margin: 0px auto;
+  text-align: left;
+
   color: azure;
 }
 .containerLast{
@@ -99,6 +101,7 @@ div#locations  > img{
   border-radius: 10px;
   margin: 0px auto;
   background-color: rgba(220,220,220,0.7);
+  margin-bottom: 500px;
 }
 .thumbnail{
   min-height: 310px;
@@ -138,7 +141,7 @@ div#locations  > img{
   height: 20px;
   background-color: #bf5f1f;
   width: 100%;
-  margin-top:600px;
+  top:100%;
 }
 #outstadings{
   height: 420px;
@@ -166,61 +169,49 @@ div#locations  > img{
 .dropdown-toggle:hover{
   background-color: transparent;
 }
-.create-project-container{
-  background-color: rgba(80,80,80,0.8);
+#login-form{
+  padding:20px;
+  color: azure;
+  background-color: rgba(200,200,200,0.50);
+}
+div.container > div.login-form-container{
+  height: 222px;
+  color: #FFF;
+}
+div.container > div.login-form-container.left {
+  height:312px;
+}
+.login-form-container, .signin-form-container{
+  background-color: rgba(88,88,88,0.85);
   padding:20px;
 }
-.preview-project-container{
-  padding:20px;
-}
-.preview-project-container > div{
-  margin: 0 auto;
-}
-#create-project>div{
-  margin-bottom:8px;
-}
-#create-project>p{
-  text-align: right;
-  color: azure;
-  font-size:11px;
-  margin:0px;
-}
-#create-project textarea{
-  height: 70px;
-  resize: none;
-  margin-bottom:0px;
-}
-.dropzone{
-  border: 2px dashed #b3b3b3;
-  height: 120px;
-  width: 100%;
-  color: azure;
-  text-align: center;
-}
-.dropzone > p{
-  margin: 30px auto 0px auto;
-  font-size: 16px;
-}
-.dropzone > span{
-  font-size: 32px;
-  font-weight: bolder;
-}
-.select-input{
+#login-form>div{
+  margin-bottom: 10px;
   width: 100%;
 }
-.row .col-md-12 input[type='button']{
+#login-form>div>input[type='button']{
+  padding:10px;
   float:right;
-  width: 100px;
-  margin-left: 10px;
+  border-radius: 5px;
+  border: 2px solid orange;
+  background-color: transparent;
 }
-div.row a{
+#signin-form div{
+  margin-bottom: 10px;
+}
+#signin-form>input[type='button']{
+  padding:5px 10px;
+  float:right;
   color: azure;
+  border-radius: 5px;
+  border: 2px solid #ba3116;
+  background-color: transparent;
+  margin-left: 10px;
+  margin-top:-2px;
 }
-#modal {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: #333;
-  width: 250px;
-  height: 40px;
+#signin-form input[type='button']#signin-btn{
+  border: 2px solid #119b00;
+}
+p#error {
+  color:white; 
 }

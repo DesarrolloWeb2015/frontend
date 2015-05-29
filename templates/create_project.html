@@ -1,121 +1,122 @@
 <style>
-    body{
-        background-color: azure;
-        background-image: none;
-    }
+  body{
+    background-color: azure;
+    background-image: none;
+  }
 </style>
 <link rel="stylesheet" href="styles/create.css" />
-<div id="middleContent">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 create-project-container">
-                <form id="create-project">
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon0">
-                            <span class="glyphicon glyphicon-pencil"></span>
-                        </span>
-                        <input type="text" class="form-control" placeholder="Project name" aria-describedby="basic-addon1"/>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon1">
-                                    <span class="glyphicon glyphicon-pencil"></span>
-                                </span>
-                                <input type="text" class="form-control" placeholder="Project slogan" aria-describedby="basic-addon1"/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group select-input">
-                                <!--input type="text" class="form-control" placeholder="Project slogan" aria-describedby="basic-addon1"/>-->
-                                <select class="form-control " id="select-type">
-                                    <option>Choose some category</option>
-                                    <option>Robotic</option>
-                                    <option>Software</option>
-                                    <option>Hardware</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <p>250 charactes</p>
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon2">
-                        <!--    <span class="glyphicon glyphicon-pencil"></span>-->
-                        </span>
-                        <textarea class="form-control" placeholder="Tiny descriptions"></textarea>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="dropzone">
-                                <p>Dropdown your files here</p>
-                                <span class="glyphicon glyphicon-arrow-down"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-
-                        </div>
-                    </div>
-                    <p>250 charactes</p>
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon2"></span>
-                        <textarea class="form-control" placeholder="Motivation"></textarea>
-                    </div>
-                    <p>250 charactes</p>
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon2"></span>
-                        <textarea class="form-control" placeholder="Prev impact"></textarea>
-                    </div>
-                    <label>Add a extra file <span>(pdf)</span>:</label>
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon2">
-                            <span class="glyphicon glyphicon-list-alt"></span>
-                        </span>
-                        <input type="file" class="form-control">
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Initial Date:</label>
-                            <input type="date" class="form-control">
-                        </div>
-                        <div class="col-md-6">
-                            <label>Ended Date</label>
-                            <input type="date" class="form-control">
-                        </div>
-                    </div>
-                    <label>Create budget <span class="glyphicon glyphicon-euro"></span></label>
-                    <p><a href="#">Add new field <span class="glyphicon glyphicon-plus"></span></a></p>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control"/>
-                        </div>
-                        <div class="col-md-6">
-                            <input type="number" class="form-control"/>
-                        </div>
-                    </div>
-                    <p><a href="#">Add new field <span class="glyphicon glyphicon-plus"></span></a></p>
-                    <br/>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input type="button" value="Create" class="form-control btn btn-success">
-                            <input type="button" value="Reset" class="form-control btn btn-danger">
-                        </div>
-                    </div>
-                </form>
+<div id="middleContent" ng-controller="createCtrl">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 create-project-container">
+        <form id="create-project">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon0">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </span>
+            <input type="text" class="form-control" ng-model="project.name" placeholder="Project name" aria-describedby="basic-addon1"/>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </span>
+                <input type="text" class="form-control" ng-model="project.slogan" placeholder="Project slogan" aria-describedby="basic-addon1"/>
+              </div>
             </div>
-            <div class="col-md-4 preview-project-container">
-                <div class="thumbnail">
-                    <img src="images/proy3.jpeg" alt="...">
-                    <div class="caption">
-                        <h4>Title Proyect</h4>
-                        <p>Tiny description about the proyecto, no much more of 150 characters.</p>
-                        <p>
-                            <a href="#">+ more</a>
-                            <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
-                        </p>
-                    </div>
-                </div>
+            <div class="col-md-6">
+              <div class="input-group select-input">
+                <select class="form-control " id="select-type" ng-model="project.type">
+                  <option>Choose some category</option>
+                  <option>Robotic</option>
+                  <option>Software</option>
+                  <option>Hardware</option>
+                  <option>Other</option>
+                </select>
+              </div>
             </div>
+          </div>
+          <p>250 charactes</p>
+          <div class="input-group" project.description>
+            <span class="input-group-addon" id="basic-addon2">
+              <!--    <span class="glyphicon glyphicon-pencil"></span>-->
+            </span>
+            <textarea class="form-control" placeholder="Tiny descriptions" ng-model="project.description"></textarea>
+          </div>
+          <p>250 charactes</p>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon2"></span>
+            <textarea class="form-control" placeholder="Motivation" ng-model="project.motivation"></textarea>
+          </div>
+          <p>250 charactes</p>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon2"></span>
+            <textarea class="form-control" placeholder="Prev impact" ng-model="project.impact"></textarea>
+          </div>
+          <label>Add a imagen:</label>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon2">
+              <span class="glyphicon glyphicon-list-alt"></span>
+            </span>
+            <input type="text" class="form-control"  placeholder="Image URL" ng-model="project.img">
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Initial Date:</label>
+              <input type="date" class="form-control" ng-model="project.inicialDate">
+            </div>
+            <div class="col-md-6">
+              <label>Ended Date</label>
+              <input type="date" class="form-control" ng-model="project.endDate">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">
+                  <span class="glyphicon glyphicon-eur"></span>
+                </span>
+                <input type="number" class="form-control" ng-model="project.amount" placeholder="Amount" aria-describedby="basic-addon1"/>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">
+                  <span class="glyphicon glyphicon-eur"></span>
+                </span>
+                <input type="text" class="form-control" ng-model="project.paypal" placeholder="Paypal email for donations" aria-describedby="basic-addon1"/>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <p style="color:black;font-weight: bold;">{{error}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <input type="button" value="Create" class="form-control btn btn-success" ng-click="create(project)" >
+              <input type="button" value="Reset" ng-click="reset()" class="form-control btn btn-danger">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4 preview-project-container">
+        <div class="thumbnail">
+          <img src="images/proy3.jpeg" alt="...">
+          <div class="caption">
+            <h4>Title Proyect</h4>
+            <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+            <p>
+              <a href="#">+ more</a>
+            </p>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+</div>
+<div id="modal" ng-show="modal">
+  <p> Projecto creado! Visita tu perfil para obtener mas información</p>
 </div>

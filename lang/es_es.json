@@ -4,6 +4,7 @@
   "about": "Sobre nosotros",
   "contact": "Contacto",
   "signin": "Signin",
+  "logout": "Logout",
   "select_lang": "Cambiar lenguage",
   "lang": {
     "es": "Español",
@@ -28,5 +29,23 @@
     "lastname":"Apellidos",
     "emailError":"Email no válido",
     "existUser":"El usuario ya existe"
-  }
+  },
+  "profile": {
+    "projects": "Tus Projectos",
+    "crown": "Crownfounding",
+    "suggestion": "Sugerencias",
+    "prof": "Perfil",
+    "no_project": "No tienes proyectos",
+    "no_project_info":"Actualmente no cuentas con proyectos creados en nuestra plataforma",
+    "no_project_sug": "Puedes crear un nuevo proyecto",
+    "no_project_here": "AQUI!",
+    "new_project": "Crear un projecto nuevo",
+    "update": "Tu información de usuario fue actualizada"
+  },
+  "contactMsg": "Contacta con nosotros",
+  "send": "Enviar",
+  "textarea":"Introduce tu comentario",
+  "acumulated": "Dinero acumulado",
+  "remain": "Días restantes"
+  
 }

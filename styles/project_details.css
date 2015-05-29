@@ -15,3 +15,22 @@ div.image {
 div.image img{
   padding: 4px;
 }
+
+input.donation {
+  width: 200px;
+}
+
+.progress {
+}
+.row-centered {
+  text-align:center;
+  margin-top: 50px;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
