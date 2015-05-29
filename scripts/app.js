@@ -165,7 +165,6 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
         console.log(data);
         $cookie.put('session',md5.createHash(data.username))
         $cookie.put('username',user.username);
-        $scope.username = user.username;
       })
         .error(function(data, status){
         if (errorCallback)
@@ -310,7 +309,6 @@ tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '
         var session = md5.createHash(user.username)
         $cookie.put('session',session)
         $cookie.put('username',user.username);
-        $cookie.$parent.username = user.username;
         $location.path('/profile/'+user.username);
       } else {
         //tratar error 
