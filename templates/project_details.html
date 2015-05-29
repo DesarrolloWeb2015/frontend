@@ -1,20 +1,19 @@
 <link rel="stylesheet" href="/styles/project_details.css"/>
-<div class="row">
+<div class="row" ng-controller="detailCtrl">
   <div class="col-md-3 ">
     <div class="thumbnail">
       <img src="images/proy3.jpeg" alt="...">
       <div class="caption">
-        <h4>Title Proyect</h4>
-        <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+        <h4>{{project.tittle}}</h4>
+        <p>{{project.slogan}}</p>
       </div>
     </div>
   </div>
   <div class="col-md-8">
     <div style="background-color:#333;width:100%;height:500px;color:azure;padding:10px 20px;">
-      <h1>Title</h1>
-      <h2>Aqui va el eslogan</h2>
-      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse excepturi suscipit, animi pariatur optio repudiandae earum voluptatibus facilis officiis? Libero ratione animi quas obcaecati rem a vel doloremque molestiae quidem.</div>
-      <div>Quidem maxime eos doloremque consequuntur. Cumque enim cum quo consequatur exercitationem aperiam eum dolor molestias, nulla? Nam quos, quisquam. Explicabo sit soluta vitae non dolor magnam aut, doloribus iure velit.</div>
+      <h1>{{project.title}}</h1>
+      <h2>{{project.slogan}}</h2>
+      <div>{{project.description}}</div>
       <div class="row row-centered">
         <div class="col-md-4 col-centered ">
           <p>{{language.acumulated}}</p>
@@ -22,7 +21,7 @@
             <div class="progress-bar" role="progressbar"
                  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
                  style="width: 50%">
-              <span>50€ / 100€ </span>
+              <span>{{project.current}}€ / {{project.needed}}€ </span>
             </div>
           </div>
         </div>
@@ -33,7 +32,7 @@
             <div class="progress-bar" role="progressbar"
                  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
                  style="width: 50%">
-              <span>40&nbsp;days</span>
+              <span>{{project.remain}}&nbsp;days</span>
             </div>
           </div>
         </div>

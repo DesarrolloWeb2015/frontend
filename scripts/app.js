@@ -120,7 +120,7 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
   this.user = {}
   this.userProjects = {}
 
-  this.getProjects = function(callback,errorCallback){
+  this.getProjects = function(callback, errorCallback){
     $http.get('http://aiocs.es/projects/')
       .success(function(data, staus, headers, config){
       this.projects = data;
@@ -238,6 +238,17 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
         errorCallback(data, status);
     });
   };
+  this.getProject = function(id, callback, errorCallback) {
+    $http.get('http://aiocs.es/project/'+id)
+      .success(function (data,status) {
+      if (callback)
+        callback(data,status)
+        })
+      .error(function (data, status) {
+      if (errorCallback)
+        errorCallback(data, status);
+    });
+  }
   return {
     projects: this.projects,
     usr: this.user,
@@ -249,7 +260,8 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
     getUserProjects:  this.getUserProjects,
     getUserCrowfounding: this.getUserCrowfounding,
     getUser: this.getUser,
-    createProject: this.createProject
+    createProject: this.createProject,
+    getProject: this.getProject
   }
 }]);
 /* Controlador para el idioma  (cambiar a directiva ?) */
@@ -298,15 +310,14 @@ tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '
   $scope.next(0);
   $http.get('lang/es_es.json').success(function (data,status) {
     $scope.language = data;
-
-    $scope.changelang = function (language) {
-      var file;
-      file = language + '_' + language + '.json';
-      $http.get('lang/' + file).success(function (data, status) {
-        $scope.language = data;
-      });
-    };
-  });
+  })
+  $scope.changelang = function (language) {
+    var file;
+    file = language + '_' + language + '.json';
+    $http.get('lang/' + file).success(function (data, status) {
+      $scope.language = data;
+    });
+  };
 
   $scope.userObj = $scope.userObj || {};
 
@@ -442,4 +453,14 @@ tecnocrownApp.controller('createCtrl', ['$scope','api','$location','$timeout', f
       }
     }
   }
+}]);
+tecnocrownApp.controller('detailCtrl',['$scope','api','$cookie',function($scope,api,$cookie) {
+  $scope.project = {name:'TecnoCrown',link:'www.tecnocrown.html',description:'Projecto para la construccion de un portal web',current:'15.000',remain:'21',needed:'30.000',img:'images/proy1.png',id:'1'}
+  $scope.username = $scope.$parent.username || $cookie.get('username')
+  $scope.id = $scope.$parent.params.projectId;
+
+  $scope.load = function() {
+    api.getProject($scope.id, function(data,status){$scope.project=data});
+  }
+  $scope.load()
 }]);
