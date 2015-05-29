@@ -174,7 +174,7 @@ div#locations  > img{
 .nav-pills>li{
     float:right;
 }
-.nav-pills>li>a{
+.nav-pills>li>span{
     padding:4px;
     color:azure;
 }

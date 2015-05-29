@@ -1,0 +1,145 @@
+<link rel="stylesheet" href="styles/home.css"/>
+<div id="middleContent">
+    <div class="project">
+
+        <!--Menu nav-->
+        <ul class="nav nav-tabs nav-justified">
+            <li class="active"><a href="" data-toggle="tab">Your Project</a></li>
+            <li><a href="" data-toggle="tab">Crownfounding</a></li>
+            <li><a href="" data-toggle="tab">Suggestion</a></li>
+            <li><a href="" data-toggle="tab">Profile</a></li>
+        </ul>
+        <div class="tab-content">
+            <!--Your project created-->
+            <div class="tab-pane in active" id="projects">
+                <!--<div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>-->
+                <div ng-hide="projects.length" class="emptyMsg">
+                    <h2>No tienes projectos</h2>
+                    <p>Actualmente no cuentas con projectos creados en nuestra plataforma.</p>
+                    <p>Puedes crear un nuevo projecto <a href="#/new_project">AQUI!</a></p>
+                </div>
+                <div projectDirective ng-repeat="project in projects"></div>
+                <!-- own projects -->
+            </div>
+
+            <!--Crowfounding Projects-->
+            <div class="tab-pane fade"id="/profile/crowfounding" >
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <div ng-repeat="element in crowfounding">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="{{element.img}}" alt="...">
+                            <div class="caption">
+                                <h4><a href="/project/{{element.id}}">{{element.name}}</a></h4>
+                                <p>{{element.description}}</p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar" role="progressbar"
+                                         aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 50%">
+                                        <span>{{element.current}}/{{element.needed}}</span>
+                                    </div>
+                                </div>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar" role="progressbar"
+                                         aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 50%">
+                                        <span>{{element.remain}}&nbsp;days</span>
+                                    </div>
+                                </div>
+                                <p>
+                                    <a href="{{element.link}}">+ more</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Suggestion info-->
+            <div class="tab-pane fade"id="/profile/suggestion">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/proy1.png" alt="...">
+                            <div class="caption">
+                                <h4>Title Proyect</h4>
+                                <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+                                <p>
+                                    <a href="#">+ more</a>
+                                    <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/proy2.jpeg" alt="...">
+                            <div class="caption">
+                                <h4>Title Proyect</h4>
+                                <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+                                <p>
+                                    <a href="#">+ more</a>
+                                    <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/proy3.jpeg" alt="...">
+                            <div class="caption">
+                                <h4>Title Proyect</h4>
+                                <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+                                <p>
+                                    <a href="#">+ more</a>
+                                    <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Profile info -->
+            <div class="tab-pane fade"id="profile/profile">
+                <br>
+                <form role="form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name"
+                               placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email"
+                               placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="organization">Your Organization</label>
+                        <input type="text" class="form-control" id="organization"
+                               placeholder="Organization">
+                    </div>
+                    <div class="form-group">
+                        <label for="github">Your Github link</label>
+                        <input type="text" class="form-control" id="github"
+                               placeholder="Github">
+                    </div>
+                    <div class="form-group">
+                        <label for="picture">Profile Picture</label>
+                        <input type="file" id="picture">
+                        <p class="help-block">Select your picture</p>
+                    </div>
+
+                    <button type="submit" class="btn btn-default">Send</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>

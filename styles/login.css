@@ -57,6 +57,9 @@ div#menu > ul  li.sigBtn {
 div#menu > ul  li.logBtn {
     border: 2px solid #c57a1c;
 }
+div#menu > ul  li.logoBtn{
+    border: 2px solid #c57a1c;
+}
 div#menu > ul  li:hover {
     background-color:#646464;
     color: white;
@@ -169,6 +172,10 @@ div#locations  > img{
     padding:20px;
     color: azure;
     background-color: rgba(200,200,200,0.50);
+}
+div.container > div.login-form-container{
+    height: 312px;
+    color: #FFF;
 }
 .login-form-container, .signin-form-container{
     background-color: rgba(88,88,88,0.85);
