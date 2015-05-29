@@ -251,10 +251,13 @@ tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '
   };
 
   $scope.next = function(next){
+
     $scope.page+=next;
     var pointer = 3*$scope.page;
     var restantes = ($scope.projects.length - pointer);
-    if ( restantes <= 0 ){
+    if (next<0){
+      $scope.page+=next;
+    } else if ( restantes <= 0 ){
       $scope.page-=next;
     } else if ( restantes ==1) {
       $scope.initial = [$scope.projects[(pointer-2)],$scope.projects[(pointer)-1],$scope.projects[(pointer)]];

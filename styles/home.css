@@ -75,7 +75,7 @@ div#locations  > img{
   float:right;
 }
 
-#middleContent{
+#midContent{
   margin-top:30px;
 }
 .project { 
@@ -92,7 +92,7 @@ div#locations  > img{
   margin:1px 65px;
 }
 .project > div {
-  padding: 10px 25px; 
+  padding: 10px z25px; 
 }
 #footer{
   margin-top:70px;
@@ -108,11 +108,11 @@ div#locations  > img{
 div.emptyMsg{
   padding: 10px;
 }
-#middleContent h2{
+#midContent h2{
   text-align: left;
   margin: 0px;
   color: black;
 }
-#middleContent .profile-content {
+#midContent .profile-content {
   padding:10px 30px;
 }

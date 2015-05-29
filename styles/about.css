@@ -1,0 +1,23 @@
+#aboutContent{
+  margin: 30px 100px;
+  color:azure;
+}
+
+#aboutContent .img {
+  border-radius: 100%;
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+  background-color:white;
+  display: inline-block;
+}
+#aboutContent .collaborator {
+  height: 150px;
+}
+#aboutContent .text {
+  display:inline-block;
+}
+
+#aboutContent .text p{
+  margin: 50px 10px;
+

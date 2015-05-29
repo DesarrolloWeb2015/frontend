@@ -87,12 +87,12 @@ div#locations  > img{
   margin-bottom: 100px;
   margin-top:70px;
 }
-#middleContent.home{
+#midContent.home{
   height: 800px; 
 }
-#middleContent h1, #middleContent h2{
+#midContent h1, #midContent h2{
   text-align: right;
-  width: 650px;
+  width: 400px;
   margin: 0px auto;
   color: azure;
 }
@@ -111,7 +111,7 @@ div#locations  > img{
 .thumbnail img{
   min-height: 135px;
 }
-#middleContent .arrowContainer{
+#midContent .arrowContainer{
   background-color: rgba(220,220,220,0.7);
   height: 70px;
   width: 35px;
@@ -121,20 +121,20 @@ div#locations  > img{
   left:50%;
   cursor: pointer;
 }
-#middleContent .arrowContainer.left{
+#midContent .arrowContainer.left{
   border-radius: 35px 0px 0px 35px ;
   margin-left: -360px;
 }
-#middleContent .arrowContainer.right{
+#midContent .arrowContainer.right{
   border-radius: 0px 35px 35px 0px ;
   margin-left: 325px;
 }
 
-#middleContent .arrowContainer.left img{
+#midContent .arrowContainer.left img{
   margin-top:18px;
   margin-left: 15px;
 }
-#middleContent .arrowContainer.right img{
+#midContent .arrowContainer.right img{
   margin-top:18px;
   margin-left: 0px;
 }

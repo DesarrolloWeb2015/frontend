@@ -1,117 +1,43 @@
-<h1>TBD: contact template</h1><link rel="stylesheet" href="styles/login.css"/>
-<div id="middleContent">
-    <div class="container">
-        <h1 style="margin-right: 0px;">Help us to build this community!!</h1>
-        <div class="col-md-7 login-form-container">
-            <form action="#" id="login-form" class="col-md-7">
-                <div>
-                    Log in to your admin panel, comment others projects and shared throughout our
-                    community your opinion about this collaboration platform... and win helping us be more and more
-                    known.
-                </div>
-                <div class="input-group">
-              <span class="input-group-addon" id="basic-addon1">
-                <span class="glyphicon glyphicon-user"></span>
-              </span>
-                    <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group">
-              <span class="input-group-addon" id="basic-addon1">
-                <span class="glyphicon glyphicon-asterisk"></span>
-              </span>
-                    <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group">
-                    <span>You forgot your password?</span>
-                    <input type="button" value="Login">
-                </div>
-            </form>
-            <div class="right-login-buttons col-md-5">
-                <!--<a class="btn btn-block btn-social btn-github" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
-                    <i class="fa fa-github"></i> Sign in with GitHub
-                </a>
-                <a class="btn btn-block btn-social btn-twitter" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
-                    <i class="fa fa-twitter"></i> Sign in with Twitter
-                </a>-->
-                <a class="btn btn-block btn-social btn-facebook" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
-                    <i class="fa fa-facebook"></i> Sign in with Facebook
-                </a>
-                <a class="btn btn-block btn-social btn-google-plus" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
-                    <i class="fa fa-google-plus"></i> Sign in with Google+
-                </a>
-                <!--<a class="btn btn-block btn-social btn-linkedin" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
-                    <i class="fa fa-linkedin"></i> Sign in with Linkedin
-                </a>
-                <a class="btn btn-block btn-social btn-bitbucket" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
-                    <i class="fa fa-bitbucket"></i> Sign in with Btbucket
-                </a>
-                <a class="btn btn-block btn-social btn-microsoft" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
-                    <i class="fa fa-windows"></i> Sign in with Microsoft
-                </a>-->
-            </div>
+<link rel="stylesheet" href="/styles/contact.css"/>
+
+ <div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form role="form" action="" method="post" >
+        <div class="col-lg-6">
+          <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div>
+          <div class="form-group">
+            <label for="InputName">Your Name</label>
+            <div class="input-group">
+              <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required>
+              <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+          </div>
+          <div class="form-group">
+            <label for="InputEmail">Your Email</label>
+            <div class="input-group">
+              <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Enter Email" required  >
+              <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+          </div>
+          <div class="form-group">
+            <label for="InputMessage">Message</label>
+            <div class="input-group"
+                 >
+              <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" required></textarea>
+              <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+          </div>
+          <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
         </div>
-        <div class="col-md-5 signin-form-container">
-            <form action="#" id="signin-form">
-                <div class="input-group">
-              <span class="input-group-addon" id="basic-addon1">
-                <span class="glyphicon glyphicon-user"></span>
-              </span>
-                    <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group">
-              <span class="input-group-addon" id="basic-addon1">
-                <span class="glyphicon glyphicon-envelope"></span>
-              </span>
-                    <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon1">
-                    <span class="glyphicon glyphicon-asterisk"></span>
-                  </span>
-                            <input type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon1">
-                    <span class="glyphicon glyphicon-phone"></span>
-                  </span>
-                            <input type="text" class="form-control" placeholder="Phone Number" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon1">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </span>
-                            <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon1">
-                    <span class="glyphicon glyphicon-asterisk"></span>
-                  </span>
-                            <input type="text" class="form-control" placeholder="Repeat Password" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon1">
-                    <span class="glyphicon glyphicon-lock"></span>
-                  </span>
-                            <input type="text" class="form-control" placeholder="Company" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon1">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </span>
-                            <input type="text" class="form-control" placeholder="Lastname" aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-                </div>
-                <input type="checkbox">
-                <span style="color: azure">Do you want to recive newsletter?</span>
-                <input type="button" value="Signin" id="signin-btn"/>
-                <input type="button" value="Reset"/>
-            </form>
-        </div>
+      </form>
+      <hr class="featurette-divider hidden-lg">
+      <div class="col-lg-5 col-md-push-1">
+        <address>
+          <h3>Office Location</h3>
+          <p class="lead"><a href="https://www.google.com/maps/preview?ie=UTF-8&q=The+Pentagon&fb=1&gl=us&hq=1400+Defense+Pentagon+Washington,+DC+20301-1400&cid=12647181945379443503&ei=qmYfU4H8LoL2oATa0IHIBg&ved=0CKwBEPwSMAo&safe=on">The Pentagon<br>
+            Washington, DC 20301</a><br>
+            Phone: XXX-XXX-XXXX<br>
+            Fax: XXX-XXX-YYYY</p>
+        </address>
+      </div>
     </div>
-</div>
-<div class="sep"></div>
+
+  </div>

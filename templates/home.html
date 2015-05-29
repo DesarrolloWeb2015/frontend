@@ -1,13 +1,17 @@
 <link rel="stylesheet" href="styles/home.css"/>
-<div id="middleContent">
+<div id="midContent">
   <h1>{{language.slogan}}</h1>
   <h1>{{language.slogan2}}</h1>
-  <div class="arrowContainer left" ng-click="next(-1)">
+  
+  <!-- paginacion -->
+   <div class="arrowContainer left" ng-click="next(-1)">
     <img  src="images/arrow_left.png"/>
   </div>
+  
   <div class="arrowContainer right" ng-click="next(1)">
     <img  src="images/arrow_right.png"/>
   </div>
+  <!-- Iterador sobre los elementos a paginar-->
   <div class="containerLast" style="margin-bottom:400px">
     <div class="row">
       <div ng-repeat="element in initial">
@@ -26,7 +30,9 @@
       </div>
     </div>
   </div>
+  <!--divisor-->
   <div class="sep"></div>
+  <!--Mas votados-->
   <div id="outstadings">
     <div class="container">
       <h4>Los mas votados:</h4>
@@ -86,6 +92,7 @@
       </div>
     </div>
   </div>
+  <!--INFO-->
   <div id="crowdfunding">
     <div class="container">
       <div class="row">
@@ -108,3 +115,4 @@
       </div>
     </div>
   </div>
+</div>

@@ -15,3 +15,7 @@ div.image {
 div.image img{
   padding: 4px;
 }
+
+input.donation {
+ width: 200px;
+}
