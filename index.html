@@ -23,6 +23,7 @@
             <a href="#/projects"><li>{{language.project}}</li></a>
             <a href="#/about"><li>{{language.about}}</li></a>
             <a href="#/contact"><li>{{language.contact}}</li></a>
+            <a ng-show="status" href="#/new_project"><li>{{language.create}}</li></a>
             <a href="#/login" ng-show="!status"><li class="navBtn sigBtn">{{language.signin}}</li></a>
             <a ng-click="logout()" ng-show="status"><li class="navBtn logBtn">{{language.logout}}</li></a>
           </ul>

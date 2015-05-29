@@ -35,10 +35,10 @@ tecnocrownApp.config(function ($routeProvider,$locationProvider){
     templateUrl: 'templates/profile.html',
     controller: 'profileCtrl',
     resolve: {
-      auth: ["$q", "$cookie","md5","$routeParams", function($q, $cookie,md5,$routeParams){
+      auth: ["$q", "$cookie","md5", function($q, $cookie,md5){
 
         var session = $cookie.get('session');
-        var username = window.location.hash.split('/')[2]
+        var username = $cookie.get('username')
         if (session && md5.createHash(username) === session) {
           return $q.when(session);
         } else {
@@ -49,7 +49,19 @@ tecnocrownApp.config(function ($routeProvider,$locationProvider){
   })
     .when('/new_project',{
     templateUrl: 'templates/create_project.html',
-    controller: 'globalCtrl'
+    controller: 'globalCtrl',
+    resolve: {
+      auth: ["$q", "$cookie","md5","$routeParams", function($q, $cookie,md5,$routeParams){
+
+        var session = $cookie.get('session');
+        var username = $cookie.get('username')
+        if (session && md5.createHash(username) === session) {
+          return $q.when(session);
+        } else {
+          return $q.reject({authenticated: false})
+        }
+      }]
+    }
   })
     .otherwise({
     redirectTo: '/home'
