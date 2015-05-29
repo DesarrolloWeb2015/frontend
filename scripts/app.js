@@ -174,7 +174,7 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
           })
     }
   };
-  this.getUserProjects = function(username, callback,errorCallback) {
+  this.getUserProjects = function (username, callback,errorCallback) {
     $http.get('http://aiocs.es/users/'+username+'/projects')
       .success(function (data,status) {
       if (callback)
@@ -193,6 +193,7 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
     singin: this.singin,
     getProjects: this.getProjects,
     validate_account: this.validate_account,
+    getUserProjects:  this.getUserProjects
   }
   /*
      this.logout = function (user, callback, errorCallback) {
@@ -296,6 +297,6 @@ tecnocrownApp.controller('validateCtrl', ['api', '$location', function(api, $loc
   api.validate_account($location.search());
 }]);
 tecnocrownApp.controller('profileCtrl',['$scope', 'api', '$cookie', function($scope, api, $cookie) {
-  $scope.projects = api.projects;
-  $scope.yourProject = api.getUserProject($parent.username)
+  $scope.projects = api.projects || {};
+  $scope.yourProject = api.getUserProjects($scope.$parent.params.username) || {}
 }]);
