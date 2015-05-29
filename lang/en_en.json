@@ -4,6 +4,7 @@
   "about": "About Us",
   "contact": "Contact",
   "signin": "Signin",
+  "logout": "Logout",
   "select_lang": "Choose your language",
   "lang": {
     "es": "Spanish",
@@ -28,6 +29,18 @@
     "lastname":"Lastname",
     "emailError":"Incorrect email form",
     "existUser":"Users with this Username already exists"
+  },
+    "profile": {
+    "projects": "Your Projects",
+    "crown": "Crownfounding",
+    "suggestion": "Suggestion",
+    "prof": "Profile",
+    "no_project": "You have no projects yet",
+    "no_project_info":"Currently you have created no projects in our platform",
+    "no_project_sug": "You can create one",
+    "no_project_here": "HERE!",
+    "new_project": "Create new Project",
+    "update": "Your data profile have been updated"
   }
-}
   
+}

@@ -10,19 +10,22 @@
     <title>TecnoCrown</title>
 
   </head>
-  <body ng-controller="IndexCtrl">
+  <body ng-controller="globalCtrl">
     <div class="header">
       <div class="container">
-        <a href="/">
+
+        <a href="/home">
           <img id="logo" src="images/logo5.png"/>
         </a>
         <div id="menu">
           <ul>
-            <a href="/home.html"><li>Home</li></a>
-            <a href="/projects.html"><li>Projects</li></a>
-            <a href="/about.html"><li>About us</li></a>
-            <a href="/contact.html"><li>Contact</li></a>
-            <a href="/login.html"><li class="navBtn sigBtn">Signin</li></a>
+
+            <a href="#/home"><li>{{language.home}}</li></a>
+            <a href="#/projects"><li>{{language.project}}</li></a>
+            <a href="#/about"><li>{{language.about}}</li></a>
+            <a href="#/contact"><li>{{language.contact}}</li></a>
+            <a href="#/login" ng-show="!status"><li class="navBtn sigBtn">{{language.signin}}</li></a>
+            <a ng-click="logout()" ng-show="status"><li class="navBtn logBtn">{{language.logout}}</li></a>
           </ul>
         </div>
       </div>

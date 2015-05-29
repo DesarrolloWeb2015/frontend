@@ -48,6 +48,8 @@ div#menu > ul  li.sigBtn {
 div#menu > ul  li.logBtn {
   border: 2px solid #c57a1c;
 }
+a > div.new {
+}
 div#menu > ul  li:hover {
   background-color:#646464;
   color: white;
@@ -74,20 +76,23 @@ div#locations  > img{
 }
 
 #middleContent{
-  /*position: relative;
-  top:50%;
-  margin-top: -250px;*/
   margin-top:30px;
 }
 .project { 
   width: 800px;
-  height: 600px;
+  min-height: 300px;
   margin: auto auto;
-    background-color: rgba(220,220,220,0.7);
+  background-color: rgb(255,255,255);
+}
+.project ul li {
+  background-color: rgba(222,222,222,0.7)
 }
 .progress-bar > span {
   color:black;
   margin:1px 65px;
+}
+.project > div {
+  padding: 10px 25px; 
 }
 #footer{
   margin-top:70px;
@@ -101,12 +106,13 @@ div#locations  > img{
   text-align: center;
 }
 div.emptyMsg{
-    padding: 10px;
+  padding: 10px;
 }
 #middleContent h2{
-    text-align: left;
-    margin: 0px;
+  text-align: left;
+  margin: 0px;
+  color: black;
 }
 #middleContent .profile-content {
- padding:10px 30px;
+  padding:10px 30px;
 }

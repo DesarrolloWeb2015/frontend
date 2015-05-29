@@ -1,135 +1,110 @@
+<link rel="stylesheet" href="styles/home.css"/>
 <div id="middleContent">
-    <h1>{{language.slogan}}</h1>
-    <h2>{{language.slogan2}}</h2>
-    <div class="arrowContainer left">
-        <img src="images/arrow_left.png"/>
-    </div>
-    <div class="arrowContainer right">
-        <img src="images/arrow_right.png"/>
-    </div>
-    <div class="containerLast">
-        <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="images/proy1.png" alt="...">
-                    <div class="caption">
-                        <h4>Title Proyect</h4>
-                        <p>Tiny description about the proyecto, no much more of 150 characters.</p>
-                        <p>
-                            <a href="#">+ {{language.more}}</a>
-                            <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
-                        </p>
-                    </div>
-                </div>
+  <h1>{{language.slogan}}</h1>
+  <h1>{{language.slogan2}}</h1>
+  <div class="arrowContainer left" ng-click="next(-1)">
+    <img  src="images/arrow_left.png"/>
+  </div>
+  <div class="arrowContainer right" ng-click="next(1)">
+    <img  src="images/arrow_right.png"/>
+  </div>
+  <div class="containerLast" style="margin-bottom:400px">
+    <div class="row">
+      <div ng-repeat="element in initial">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <img src="{{element.img}}" alt="...">
+            <div class="caption">
+              <h4>{{element.title}}</h4>
+              <p>{{element.description}}</p>
+              <p>
+                <a href="#/project/{{element.id}}">+ {{language.more}}</a>
+              </p>
             </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="images/proy2.jpeg" alt="...">
-                    <div class="caption">
-                        <h4>Title Proyect</h4>
-                        <p>Tiny description about the proyecto, no much more of 150 characters.</p>
-                        <p>
-                            <a href="#">+ {{language.more}}</a>
-                            <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="images/proy3.jpeg" alt="...">
-                    <div class="caption">
-                        <h4>Title Proyect</h4>
-                        <p>Tiny description about the proyecto, no much more of 150 characters.</p>
-                        <p>
-                            <a href="#">+ {{language.more}}</a>
-                            <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
-                        </p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<div class="sep"></div>
-<div id="outstadings">
+  </div>
+  <div class="sep"></div>
+  <div id="outstadings">
     <div class="container">
-        <h4>Los mas votados:</h4>
-        <div class="row">
-            <div class="col-sm-6 col-sm-3">
-                <div class="thumbnail">
-                    <img src="images/proy1.png" alt="...">
-                    <div class="caption">
-                        <h4>Title Proyect</h4>
-                        <p>Tiny description about the proyecto, no much more of 150 characters.</p>
-                        <p>
-                            <a href="#">+ {{language.more}}</a>
-                            <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
-                        </p>
-                    </div>
-                </div>
+      <h4>Los mas votados:</h4>
+      <div class="row">
+        <div class="col-sm-6 col-sm-3">
+          <div class="thumbnail">
+            <img src="images/proy1.png" alt="...">
+            <div class="caption">
+              <h4>Title Proyect</h4>
+              <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+              <p>
+                <a href="#">+ {{language.more}}</a>
+                <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
+              </p>
             </div>
-            <div class="col-sm-6 col-sm-3">
-                <div class="thumbnail">
-                    <img src="images/proy2.jpeg" alt="...">
-                    <div class="caption">
-                        <h4>Title Proyect</h4>
-                        <p>Tiny description about the proyecto, no much more of 150 characters.</p>
-                        <p>
-                            <a href="#">+ {{language.more}}</a>
-                            <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-sm-3">
-                <div class="thumbnail">
-                    <img src="images/proy3.jpeg" alt="...">
-                    <div class="caption">
-                        <h4>Title Proyect</h4>
-                        <p>Tiny description about the proyecto, no much more of 150 characters.</p>
-                        <p>
-                            <a href="#">+ {{language.more}}</a>
-                            <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-sm-3">
-                <div class="thumbnail">
-                    <img src="images/proy3.jpeg" alt="...">
-                    <div class="caption">
-                        <h4>Title Proyect</h4>
-                        <p>Tiny description about the proyecto, no much more of 150 characters.</p>
-                        <p>
-                            <a href="#">+ {{language.more}}</a>
-                            <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
-                        </p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+        <div class="col-sm-6 col-sm-3">
+          <div class="thumbnail">
+            <img src="images/proy2.jpeg" alt="...">
+            <div class="caption">
+              <h4>Title Proyect</h4>
+              <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+              <p>
+                <a href="#">+ {{language.more}}</a>
+                <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-sm-3">
+          <div class="thumbnail">
+            <img src="images/proy3.jpeg" alt="...">
+            <div class="caption">
+              <h4>Title Proyect</h4>
+              <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+              <p>
+                <a href="#">+ {{language.more}}</a>
+                <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-sm-3">
+          <div class="thumbnail">
+            <img src="images/proy3.jpeg" alt="...">
+            <div class="caption">
+              <h4>Title Proyect</h4>
+              <p>Tiny description about the proyecto, no much more of 150 characters.</p>
+              <p>
+                <a href="#">+ {{language.more}}</a>
+                <!--<a href="#" class="btn btn-default" role="button">Button</a>-->
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-<div id="crowdfunding">
+  </div>
+  <div id="crowdfunding">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="images/07.png" width="100%"/>
-            </div>
-            <div class="col-md-6 text-row">
-                <h2>TECNOCROWD ADVANTAGE</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce odio mi, porta vitae lacus sed,
-                    hendrerit volutpat justo. Aliquam dignissim ipsum tellus, in efficitur purus sodales et.
-                    In lectus mi, ultricies eu nisl ultricies, sodales rhoncus elit. Aenean convallis dui a posuere
-                    porttitor. Cras egestas sagittis eleifend. In sodales ligula id ipsum placerat, id iaculis tortor
-                    varius. Praesent sit amet lacus a turpis gravida pretium. Etiam ultrices mauris sed mollis placerat.
-                    Cras ut consectetur mi. Integer vitae mauris aliquet, imperdiet erat in, dignissim tortor.
-                    Nam luctus congue massa, sed lacinia urna venenatis id. Fusce tempor enim eros. Praesent semper
-                    porttitor libero, sit amet ornare lorem imperdiet vel.
-                </p>
-            </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="images/07.png" width="100%"/>
         </div>
+        <div class="col-md-6 text-row">
+          <h2>TECNOCROWD ADVANTAGE</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce odio mi, porta vitae lacus sed,
+            hendrerit volutpat justo. Aliquam dignissim ipsum tellus, in efficitur purus sodales et.
+            In lectus mi, ultricies eu nisl ultricies, sodales rhoncus elit. Aenean convallis dui a posuere
+            porttitor. Cras egestas sagittis eleifend. In sodales ligula id ipsum placerat, id iaculis tortor
+            varius. Praesent sit amet lacus a turpis gravida pretium. Etiam ultrices mauris sed mollis placerat.
+            Cras ut consectetur mi. Integer vitae mauris aliquet, imperdiet erat in, dignissim tortor.
+            Nam luctus congue massa, sed lacinia urna venenatis id. Fusce tempor enim eros. Praesent semper
+            porttitor libero, sit amet ornare lorem imperdiet vel.
+          </p>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
