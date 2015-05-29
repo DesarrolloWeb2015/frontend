@@ -186,6 +186,15 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
         errorCallback(data,status);
     });
   };
+  this.getUserCrowfounding = function(username,callback,errorCallback) { 
+    $http.get('http://aiocs.es/users/'+username+'collaborators')
+      .success(function(data,status) {
+
+    })
+      .error(function(data,status) {
+
+    });
+  }
   return {
     projects: this.projects,
     usr: this.user,
@@ -193,7 +202,8 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
     singin: this.singin,
     getProjects: this.getProjects,
     validate_account: this.validate_account,
-    getUserProjects:  this.getUserProjects
+    getUserProjects:  this.getUserProjects,
+    getUserCrowfounding: this.getUserCrowfounding
   }
   /*
      this.logout = function (user, callback, errorCallback) {
@@ -219,7 +229,7 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
 
 }]);
 /* Controlador para el idioma  (cambiar a directiva ?) */
-tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '$location',function($scope, $http,api, $routeParams, $location){
+tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '$location','md5','$cookie',function($scope, $http,api, $routeParams, $location,md5,$cookie){
   $scope.language = $scope.language || {};
   $scope.params = $routeParams;
   $scope.user = {}
@@ -247,6 +257,8 @@ tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '
     if($scope.userObj.username !== "" && $scope.userObj.password !== "") {
       api.auth($scope.userObj);
       $scope.user = api.usr
+      var session = md5.createHash(user.username)
+      $cookie.put('session',session)
       $location.path('/profile/'+user.username);
     }
     else
@@ -298,5 +310,7 @@ tecnocrownApp.controller('validateCtrl', ['api', '$location', function(api, $loc
 }]);
 tecnocrownApp.controller('profileCtrl',['$scope', 'api', '$cookie', function($scope, api, $cookie) {
   $scope.projects = api.projects || {};
-  $scope.yourProject = api.getUserProjects($scope.$parent.params.username) || {}
+  $scope.username = $scope.$parent.params.username;
+  $scope.active = 1;
+  $scope.yourProject = api.getUserProjects($scope.username) || {}
 }]);

@@ -107,3 +107,6 @@ div.emptyMsg{
     text-align: left;
     margin: 0px;
 }
+#middleContent .profile-content {
+ padding:10px 30px;
+}
