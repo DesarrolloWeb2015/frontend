@@ -33,7 +33,7 @@ tecnocrownApp.config(function ($routeProvider,$locationProvider){
   })
     .when('/profile/:username', {
     templateUrl: 'templates/profile.html',
-    controller: 'globalCtrl',
+    controller: 'profileCtrl',
     resolve: {
       auth: ["$q", "$cookie","md5","$routeParams", function($q, $cookie,md5,$routeParams){
 
@@ -107,38 +107,41 @@ tecnocrownApp.service('$cookie', function () {
 });
 
 tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, md5) {
-  var projects = {}
-  var user = {}
+  this.projects = {}
+  this.user = {}
+  this.userProjects = {}
 
-  var getProjects = function(){
-    $http.get('http://aiocs.es/projects/').
-    success(function(data, staus, headers, config){
-      console.log("DATA"+JSON.stringify(data))
+  this.getProjects = function(callback,errorCallback){
+    $http.get('http://aiocs.es/projects/')
+      .success(function(data, staus, headers, config){
       this.projects = data;
-    }).
-    error(function(data, staus, headers, config){
-      console.log("ERROR")
+      if (callback)
+        callback(data,status);
+    })
+      .error(function(data, staus, headers, config) {
+      console.log("ERROR");  
+      if (errorCallback)
+        errorCallback(data,status);
     });
   };
 
-  var singin = function(data,callback,errorCallback){
+  this.singin = function(data,callback,errorCallback){
     // send mail to confirm email account
     if(data.r_password === data.password) {
       delete data.r_password;
       $http.post('http://aiocs.es/users/', data)
         .success(function (data, status, headers, config) {
         if (callback)
-          callback(data,status)
-          })
+          callback(data,status);
+      })
         .error(function (data, status) {
         if (errorCallback)
-          errorCallback(data,status)
-          });
+          errorCallback(data,status);
+      });
     }
   };
 
-  var validate_account = function(params){
-    console.log(params)
+  this.validate_account = function(params){
     if(params.c){
       validate_code = params.c;
       // search user whit code params.c
@@ -154,12 +157,12 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
     }
   };
 
-  var auth = function (user,callback,errorCallback) {
+  this.auth = function (user,callback,errorCallback) {
     if(user.password && user.username){
       $http.get('http://aiocs.es/users/login_user?username='+user.username+'&password='+user.password)
         .success(function(data, status, headers, config){
         if (callback) {
-          callback(data,stat)
+          callback(data,status)
         }
         this.user = data
         console.log(data);
@@ -167,18 +170,29 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
       })
         .error(function(data, status){
         if (errorCallback)
-          errorCallback(data,stat)
+          errorCallback(data,status)
           })
     }
   };
-
+  this.getUserProjects = function(username, callback,errorCallback) {
+    $http.get('http://aiocs.es/users/'+username+'/projects')
+      .success(function (data,status) {
+      if (callback)
+        callback(data,status);
+      this.userProjects = data;
+    })
+      .error(function (data, status) {
+      if (errorCallback)
+        errorCallback(data,status);
+    });
+  };
   return {
-    projects: projects,
-    usr: user,
-    auth: auth,
-    singin: singin,
-    getProjects: getProjects,
-    validate_account: validate_account,
+    projects: this.projects,
+    usr: this.user,
+    auth: this.auth,
+    singin: this.singin,
+    getProjects: this.getProjects,
+    validate_account: this.validate_account,
   }
   /*
      this.logout = function (user, callback, errorCallback) {
@@ -204,7 +218,7 @@ tecnocrownApp.service('api',['$http',"$cookie","md5", function ($http, $cookie, 
 
 }]);
 /* Controlador para el idioma  (cambiar a directiva ?) */
-tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams',function($scope, $http,api, $routeParams){
+tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '$location',function($scope, $http,api, $routeParams, $location){
   $scope.language = $scope.language || {};
   $scope.params = $routeParams;
   $scope.user = {}
@@ -232,10 +246,11 @@ tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams',fu
     if($scope.userObj.username !== "" && $scope.userObj.password !== "") {
       api.auth($scope.userObj);
       $scope.user = api.usr
+      $location.path('/profile/'+user.username);
     }
     else
-      // TBD: form not valid
-      return false;
+      $scope.loginError = true;
+    return false;
   };
 
 }]);
@@ -249,7 +264,7 @@ tecnocrownApp.controller('signinCrtl',['$scope', 'api','$location','md5',"$cooki
   // launch signin form
   $scope.update = function(user){
     if (user) {
-      if (user.password === user.r_password && Object.keys(user).length === 8) {
+      if (user.password === user.r_password && user.password && user.username && user.email) {
         $scope.userObj = angular.copy(user)
         $scope.error = '';
         console.log("SENDING:::: "+JSON.stringify($scope.userObj))
@@ -279,4 +294,8 @@ tecnocrownApp.controller('signinCrtl',['$scope', 'api','$location','md5',"$cooki
 
 tecnocrownApp.controller('validateCtrl', ['api', '$location', function(api, $location){
   api.validate_account($location.search());
+}]);
+tecnocrownApp.controller('profileCtrl',['$scope', 'api', '$cookie', function($scope, api, $cookie) {
+  $scope.projects = api.projects;
+  $scope.yourProject = api.getUserProject($parent.username)
 }]);
