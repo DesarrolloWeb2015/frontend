@@ -11,5 +11,23 @@
   },
   "slogan": "WE MAKE GROW",
   "slogan2": "UP YOURS BIG IDEAS",
-  "more": "more"
+  "helpus": "Help us to build this community!!",
+  "more": "more",
+  "thanks":"Thanks for register",
+  "validateMsg":"Only one more step",
+  "signinFields":{
+    "passwordError": "passwords are differents",
+    "boxError": "All fields must be completed",
+    "username": "Username",
+    "email": "Email",
+    "password":"Password",
+    "r_password":"Repeat Password",
+    "phone":"Phone Number",
+    "company":"Company",
+    "name": "Name",
+    "lastname":"Lastname",
+    "emailError":"Incorrect email form",
+    "existUser":"Users with this Username already exists"
+  }
 }
+  
