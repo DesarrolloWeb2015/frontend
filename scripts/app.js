@@ -263,7 +263,8 @@ tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '
   $scope.load = function() {
     api.getProjects($scope.page,function(data) {$scope.projects=data;$scope.next(0)});
   };
-
+  /* Cargamos la funcion inicial*/
+ // $scope.load()
   $scope.next = function(next){
     $scope.page+=next;
     var pointer = 3*$scope.page;
@@ -326,8 +327,7 @@ tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '
     $location.path('/home');
   };
 
-  /* Cargamos la funcion inicial*/
-  $scope.load()
+
 
 }]);
 
