@@ -91,13 +91,14 @@ div#locations  > img{
 }
 .project ul li {
   background-color: rgba(222,222,222,0.7)
+    
 }
 .progress-bar > span {
   color:black;
   margin:1px 65px;
 }
 .project > div {
-  padding: 10px z25px; 
+    padding: 10px 25px;
 }
 #footer{
   margin-top:70px;
