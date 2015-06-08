@@ -28,5 +28,9 @@
     "lastname":"Apellidos",
     "emailError":"Email no válido",
     "existUser":"El usuario ya existe"
+  },
+  "login_error": {
+    "password":"* Contraseña o usuario incorrecto",
+    "void":"* Contraseña y usuario son necesarios"
   }
 }

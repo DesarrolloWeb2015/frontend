@@ -28,6 +28,10 @@
     "lastname":"Lastname",
     "emailError":"Incorrect email form",
     "existUser":"Users with this Username already exists"
+  },
+  "login_error": {
+    "password":"password or username incorrect",
+    "void":"Password and username are required"
   }
 }
   

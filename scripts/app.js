@@ -244,13 +244,17 @@ tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '
   // launch login form
   $scope.login = function(user){
     $scope.userObj = angular.copy(user)
-    if($scope.userObj.username !== "" && $scope.userObj.password !== "") {
-      api.auth($scope.userObj);
-      $scope.user = api.usr
-      $location.path('/profile/'+user.username);
-    }
-    else
-      $scope.loginError = true;
+    if($scope.userObj && $scope.userObj.username && $scope.userObj.password) {
+      var callback = function(){
+        $scope.user = api.usr
+        $location.path('/profile/'+user.username);
+        $scope.loginError = false;
+      }
+      var errorCallback = function() {$scope.loginError = $scope.language.login_error.password;}
+      api.auth($scope.userObj,callback, errorCallback);
+
+    } else
+      $scope.loginError = $scope.language.login_error.void;
     return false;
   };
 
