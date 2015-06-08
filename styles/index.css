@@ -22,7 +22,9 @@ h1{
     height: 75px;
     background-color: rgba(38, 39, 44, 0.85);
 }
-
+div[ng-view] {
+ min-height: 720px; 
+}
 #logo {
     width: auto;
     float: left;
@@ -174,7 +176,7 @@ div#locations  > img{
 .nav-pills>li{
     float:right;
 }
-.nav-pills>li>a{
+.nav-pills>li>span{
     padding:4px;
     color:azure;
 }

@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css"/>
+<link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="styles/login.css"/>
+<div id="middleContent">
+  <div class="container">
+    <h1 style="margin-right: 0px;">{{language.helpus}}</h1>
+    <div class="col-md-7 login-form-container left">
+      <form action="#" id="login-form" class="col-md-7">
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon0">
+            <span class="glyphicon glyphicon-user"></span>
+          </span>
+          <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" ng-model="usr.username" required>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon00">
+            <span class="glyphicon glyphicon-asterisk"></span>
+          </span>
+          <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1" ng-model="usr.password">
+        </div>
+        <div class="input-group">
+          <span>You forgot your password?</span>
+          <input type="button" value="Login" ng-click="this.login(usr)">
+        </div>
+      </form>
+    </div>
+    <div class="col-md-5 signin-form-container">
+      <form action="#" id="signin-form" ng-controller="signinCrtl">
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">
+            <span class="glyphicon glyphicon-user"></span>
+          </span>
+          <input type="text" class="form-control" id="username_signin"
+                 placeholder="{{language.signinFields.username}}" aria-describedby="basic-addon1" ng-model="user.username">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon2">
+            <span class="glyphicon glyphicon-envelope"></span>
+          </span>
+          <input type="email" class="form-control" placeholder="{{language.signinFields.email}}" aria-describedby="basic-addon1" ng-model="user.email">
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">
+                <span class="glyphicon glyphicon-asterisk"></span>
+              </span>
+              <input type="password" class="form-control" placeholder="{{language.signinFields.password}}" aria-describedby="basic-addon1" ng-model="user.password">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon4">
+                <span class="glyphicon glyphicon-phone"></span>
+              </span>
+              <input type="text" class="form-control" placeholder="{{language.signinFields.phone}}" aria-describedby="basic-addon1" ng-model="user.phonenumber">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon5">
+                <span class="glyphicon glyphicon-pencil"></span>
+              </span>
+              <input type="text" class="form-control" placeholder="{{language.signinFields.name}}" aria-describedby="basic-addon1" ng-model="user.name">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon6">
+                <span class="glyphicon glyphicon-asterisk"></span>
+              </span>
+              <input type="password" class="form-control" placeholder="{{language.signinFields.r_password}}" aria-describedby="basic-addon1" ng-model="user.r_password">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon7">
+                <span class="glyphicon glyphicon-lock"></span>
+              </span>
+              <input type="text" class="form-control" placeholder="{{language.signinFields.company}}" aria-describedby="basic-addon1" ng-model="user.company">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon8">
+                <span class="glyphicon glyphicon-pencil"></span>
+              </span>
+              <input type="text" class="form-control" placeholder="{{language.signinFields.lastname}}" aria-describedby="basic-addon1" ng-model="user.lastname">
+            </div>
+          </div>
+          <p id="error" ng-show="error">{{error}}</p>
+        </div>                
+        <input type="checkbox" ng-model="user.newsletter">
+
+        <span style="color: azure">Do you want to recive newsletter?</span>
+        <input type="button" value="{{language.signin}}" id="signin-btn" ng-click="update(user)"/>
+        <input type="button" value="Reset" ng-click="this.reset()"/>
+      </form>
+    </div>
+  </div>
+</div>

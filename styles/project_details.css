@@ -1,0 +1,17 @@
+body,html{
+  background-color: azure;
+  background-image: none;
+}
+div.contain {
+  margin: 10px 50px;
+  background-color:white;
+
+}
+div.image {
+  display:inline-block;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+div.image img{
+  padding: 4px;
+}

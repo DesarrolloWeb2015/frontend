@@ -11,5 +11,22 @@
   },
   "slogan": "HACEMOS CRECER",
   "slogan2": "GRANDES IDEAS",
-  "more": "más"
+  "helpus": "¡¡Ayuda a construir esta comunidad!!",
+  "more": "más",
+  "thanks":"¡Gracias por registrarte!",
+  "validateMsg":"Solo un paso más",
+  "signinFields": {
+    "passwordError": "Las contraseñas son diferentes",
+    "boxError": "Todos los campos deben estar rellenados",
+    "username": "Nick",
+    "email": "Email",
+    "password":"Contraseña",
+    "r_password":"Repita Contraseña",
+    "phone":"Teléfono",
+    "company":"Compañia",
+    "name": "Nombre",
+    "lastname":"Apellidos",
+    "emailError":"Email no válido",
+    "existUser":"El usuario ya existe"
+  }
 }

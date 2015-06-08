@@ -1,0 +1,21 @@
+#header{
+    background-color: #080808;
+}
+ul{
+    list-style: none;
+    margin-left: 0px !important;
+    margin-top: 10px !important;
+}
+
+ul li {
+    padding: 8px 10px;
+}
+
+ul li:hover {
+    background-color: #080808;
+    color: #9acfea;
+}
+
+div.col-md-2{
+    padding-left: 0px !important;
+}
