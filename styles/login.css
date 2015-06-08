@@ -215,3 +215,7 @@ div.container > div.login-form-container.left {
 p#error {
  color:white; 
 }
+
+p.error {
+ color: #b70000; 
+}

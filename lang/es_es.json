@@ -47,6 +47,10 @@
   "textarea":"Introduce tu comentario",
   "acumulated": "Dinero acumulado",
   "remain": "Días restantes",
-  "create": "Crear Proyecto"
-  
+  "create": "Crear Proyecto",
+  "login_error": {
+    "password":"* Contraseña o usuario incorrecto",
+    "void":"* Contraseña y usuario son necesarios"
+  }
+
 }

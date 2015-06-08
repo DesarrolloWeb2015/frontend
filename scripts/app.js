@@ -288,7 +288,7 @@ tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '
   };
   /* Cargamos la funcion inicial*/
 
-  $scope.load()
+  //$scope.load()
   $scope.next = function(next){
     $scope.page+=next;
     var pointer = 3*$scope.page;
@@ -320,26 +320,43 @@ tecnocrownApp.controller('globalCtrl',['$scope', '$http','api','$routeParams', '
   };
 
   $scope.userObj = $scope.userObj || {};
+  $scope.login = function(user){
+    $scope.userObj = angular.copy(user)
+    if($scope.userObj && $scope.userObj.username && $scope.userObj.password) {
+      var callback = function(){
+        $scope.user = api.usr
+        $location.path('/profile/'+user.username);
+        $scope.loginError = false;
+      }
+      var errorCallback = function() {$scope.loginError = $scope.language.login_error.password;}
+      api.auth($scope.userObj,callback, errorCallback);
+
+    } else
+      $scope.loginError = $scope.language.login_error.void;
+    return false;
+  };
+
+
 
   $scope.dividir = 
     // launch login form
     $scope.login = function(user){
     $scope.userObj = angular.copy(user)
-    if($scope.userObj.username !== "" && $scope.userObj.password !== "") {
-      api.auth($scope.userObj);
-      $scope.user = api.usr
-      if (api.usr) {
+    if($scope.userObj && $scope.userObj.username && $scope.userObj.password) {
+      var callback = function(){
+        $scope.user = api.usr
         $scope.$parent.status = true;
         var session = md5.createHash(user.username)
         $cookie.put('session',session)
         $cookie.put('username',user.username);
         $location.path('/profile/'+user.username);
-      } else {
-        //tratar error 
+        $scope.loginError = false;
       }
-    }
-    else
-      $scope.loginError = true;
+      var errorCallback = function() {$scope.loginError = $scope.language.login_error.password;}
+      api.auth($scope.userObj,callback, errorCallback);
+
+    } else
+      $scope.loginError = $scope.language.login_error.void;
     return false;
   };
   // Logout

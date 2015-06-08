@@ -47,6 +47,10 @@
   "textarea":"Write your comment",
   "acumulated": "Money acumulated",
   "remain": "Days left",
-  "create": "Create Project"
+  "create": "Create Project",
+  "login_error": {
+    "password":"* password or username incorrect",
+    "void":"* Password and username are required"
+  }
 
 }
